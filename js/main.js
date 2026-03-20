@@ -58,7 +58,7 @@
   // Close on backdrop click
   document.addEventListener('click', function (e) {
     if (navMenu && navMenu.classList.contains('open')) {
-      if (!navMenu.contains(e.target) && e.target !== mobileMenuBtn) {
+      if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
         closeMenu();
       }
     }
