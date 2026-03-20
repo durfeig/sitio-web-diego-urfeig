@@ -196,10 +196,11 @@
       const nombre  = contactForm.querySelector('#nombre').value.trim();
       const email   = contactForm.querySelector('#email').value.trim();
       const tipo    = contactForm.querySelector('#tipo').value;
+      const empresa = contactForm.querySelector('#empresa').value.trim();
+      const mensaje = contactForm.querySelector('#mensaje').value.trim();
 
-      // Simple validation
+      // Validate required fields
       if (!nombre || !email || !tipo) {
-        // Highlight missing fields
         [['#nombre', nombre], ['#email', email], ['#tipo', tipo]].forEach(function ([id, val]) {
           const field = contactForm.querySelector(id);
           if (!val) {
@@ -212,28 +213,6 @@
         return;
       }
 
-      // Build mailto link
-      const subject = encodeURIComponent('Consulta desde diegourfeig.com — ' + tipo);
-      const empresa = contactForm.querySelector('#empresa').value.trim();
-      const mensaje = contactForm.querySelector('#mensaje').value.trim();
-
-      const bodyLines = [
-        'Hola Diego,',
-        '',
-        'Me comunico desde diegourfeig.com con la siguiente consulta:',
-        '',
-        'Nombre: ' + nombre,
-        empresa ? 'Empresa: ' + empresa : '',
-        'Email: ' + email,
-        'Tipo de solicitud: ' + tipo,
-        mensaje ? '\nMensaje:\n' + mensaje : '',
-        '',
-        'Saludos,'
-      ].filter(function (l) { return l !== null; });
-
-      const body = encodeURIComponent(bodyLines.join('\n'));
-      const mailto = 'mailto:hola@diegourfeig.com?subject=' + subject + '&body=' + body;
-
       // Show button loading state
       const btnText    = contactForm.querySelector('.btn-text');
       const btnLoading = contactForm.querySelector('.btn-loading');
@@ -243,21 +222,44 @@
       if (btnLoading) btnLoading.hidden = false;
       if (btnArrow)   btnArrow.hidden   = true;
 
-      // Open mailto and show success after brief delay
-      setTimeout(function () {
-        window.location.href = mailto;
-
+      // Send via Formsubmit AJAX
+      fetch('https://formsubmit.co/ajax/elmaildediego@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          nombre:   nombre,
+          empresa:  empresa || '—',
+          email:    email,
+          tipo:     tipo,
+          mensaje:  mensaje || '—',
+          _subject: 'Consulta desde diegourfeig.com — ' + tipo
+        })
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
         if (btnText)    btnText.hidden    = false;
         if (btnLoading) btnLoading.hidden = true;
         if (btnArrow)   btnArrow.hidden   = false;
 
-        if (formSuccess) {
-          formSuccess.hidden = false;
-          formError.hidden   = true;
+        if (data.success === 'true' || data.success === true) {
+          if (formSuccess) formSuccess.hidden = false;
+          if (formError)   formError.hidden   = true;
+          contactForm.reset();
+        } else {
+          if (formSuccess) formSuccess.hidden = true;
+          if (formError)   formError.hidden   = false;
         }
-
-        // contactForm.reset();
-      }, 600);
+      })
+      .catch(function () {
+        if (btnText)    btnText.hidden    = false;
+        if (btnLoading) btnLoading.hidden = true;
+        if (btnArrow)   btnArrow.hidden   = false;
+        if (formSuccess) formSuccess.hidden = true;
+        if (formError)   formError.hidden   = false;
+      });
     });
   }
 
