@@ -1921,7 +1921,7 @@ h1, h2, h3, h4 {
     margin: 0 auto var(--space-xl);
   }
 
-  .hero-ctas .btn { justify-content: center; }
+  .hero-ctas .btn { justify-content: center; white-space: normal; text-align: center; }
 
   /* Social profiles */
   .social-profiles {
@@ -2056,4 +2056,127 @@ h1, h2, h3, h4 {
 ::selection {
   background: rgba(0, 212, 255, 0.2);
   color: var(--text-primary);
+}
+
+/* ============================================================
+   UKELELE AFFILIATION BADGE (bio section)
+============================================================ */
+.ukelele-affiliation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: rgba(123, 47, 255, 0.08);
+  border: 1px solid rgba(123, 47, 255, 0.25);
+  border-radius: 12px;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.ukelele-logo {
+  height: 32px !important;
+  max-height: 36px;
+  width: auto !important;
+  max-width: 160px;
+  flex-shrink: 0;
+  opacity: 0.9;
+  background: white;
+  border-radius: 6px;
+  padding: 4px 10px;
+  box-sizing: content-box;
+  object-fit: contain;
+}
+
+.ukelele-affiliation-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ukelele-affiliation-text strong {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--accent-violet);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ukelele-affiliation-text span {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   EMPRESAS QUE HAN CONFIADO — Slider infinito
+============================================================ */
+.empresas-slider {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  margin-top: var(--space-lg);
+  overflow: hidden;
+  padding: 2rem 0;
+  /* Fade edges */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.empresas-slider:hover .empresas-track {
+  animation-play-state: paused;
+}
+
+.empresas-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.empresa-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.empresa-logo-slot img {
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+.empresa-logo-slot img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .ukelele-affiliation {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .empresas-slider {
+    padding: 1.5rem 0;
+  }
+
+  .empresa-logo-slot img {
+    height: 44px;
+    max-width: 130px;
+  }
+
+  .empresas-track {
+    gap: 2.5rem;
+  }
 }
