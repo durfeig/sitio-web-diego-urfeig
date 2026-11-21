@@ -230,18 +230,21 @@ function start() {
     const maxScreens = Math.max(1, (document.documentElement.scrollHeight - height) / height);
     // la red nunca se termina antes que la página
     const travel = Math.min(TRAVEL, ((ROWS - 4) * ROW_GAP) / maxScreens);
-    const targetY = screens * travel;
-    groupY += (targetY - groupY) * (reduceMotion ? 1 : 1 - Math.pow(0.001, dt));
+    // con movimiento reducido el fondo no se desplaza con el scroll: solo circulan los casos
+    const targetY = reduceMotion ? 0 : screens * travel;
+    groupY += (targetY - groupY) * (1 - Math.pow(0.001, dt));
     group.position.y = groupY;
-    group.rotation.y += ((pointer.x * 0.16) - group.rotation.y) * 0.05;
-    group.rotation.x += ((pointer.y * 0.08) - group.rotation.x) * 0.05;
+    if (!reduceMotion) {
+      group.rotation.y += ((pointer.x * 0.16) - group.rotation.y) * 0.05;
+      group.rotation.x += ((pointer.y * 0.08) - group.rotation.x) * 0.05;
+    }
 
     // más presente en el hero, más tenue detrás del contenido
     const targetOpacity = screens < 0.6 ? 0.95 : 0.55;
-    opacity += (targetOpacity - opacity) * (reduceMotion ? 1 : 0.06);
+    opacity += (targetOpacity - opacity) * 0.06;
     canvas.style.opacity = opacity.toFixed(3);
 
-    placeCases(reduceMotion ? 0 : dt, 1 + Math.min(boost, 5));
+    placeCases(dt, reduceMotion ? 0.6 : 1 + Math.min(boost, 5));
     paintNodes(dt);
     renderer.render(scene, camera);
   }
@@ -249,14 +252,6 @@ function start() {
   resize();
   window.addEventListener('resize', resize);
   canvas.classList.add('is-ready');
-
-  if (reduceMotion) {
-    const still = () => { last = performance.now(); render(performance.now()); };
-    still();
-    window.addEventListener('scroll', () => requestAnimationFrame(still), { passive: true });
-    window.addEventListener('resize', still);
-    return;
-  }
 
   let running = true;
   function loop(now) {

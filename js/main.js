@@ -70,7 +70,7 @@
      TITULAR: la frase del medio rota
   ---------------------------------------------------------- */
   var rot = document.getElementById('heroRot');
-  if (rot && !reduceMotion) {
+  if (rot) {
     var items = slice(rot.children);
     var current = 0;
     setInterval(function () {
@@ -86,22 +86,52 @@
   }
 
   /* ----------------------------------------------------------
-     VIDEO DEL HERO: se pausa fuera de pantalla
+     VIDEO DEL HERO
+     Arranca solo y sin sonido, se pausa fuera de pantalla y tiene
+     un botón para frenarlo. Si el teléfono bloquea el arranque
+     automático (por ejemplo en modo de ahorro de batería), arranca
+     con el primer toque o scroll.
   ---------------------------------------------------------- */
   var stageVideo = document.getElementById('stageVideo');
+  var stageToggle = document.getElementById('stageToggle');
   if (stageVideo) {
-    if (reduceMotion) {
-      stageVideo.removeAttribute('autoplay');
-      stageVideo.pause();
-    } else if ('IntersectionObserver' in window) {
+    var userPaused = false;
+    var stageVisible = true;
+    var playStage = function () {
+      if (userPaused || !stageVisible) { return; }
+      var p = stageVideo.play();
+      if (p && p.catch) { p.catch(function () {}); }
+    };
+    stageVideo.muted = true;
+    playStage();
+
+    if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          var p = stageVideo.play();
-          if (p && p.catch) { p.catch(function () {}); }
-        } else {
-          stageVideo.pause();
-        }
+        stageVisible = entries[0].isIntersecting;
+        if (stageVisible) { playStage(); } else { stageVideo.pause(); }
       }, { threshold: 0.05 }).observe(stageVideo);
+    }
+
+    var wake = function () {
+      if (stageVideo.paused) { playStage(); }
+      if (!stageVideo.paused) {
+        ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+          window.removeEventListener(ev, wake, true);
+        });
+      }
+    };
+    ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, wake, { capture: true, passive: true });
+    });
+
+    if (stageToggle) {
+      stageToggle.addEventListener('click', function () {
+        userPaused = !userPaused;
+        if (userPaused) { stageVideo.pause(); } else { playStage(); }
+        stageToggle.setAttribute('aria-pressed', String(userPaused));
+        stageToggle.setAttribute('aria-label', userPaused ? 'Reproducir el video' : 'Pausar el video');
+        track('video_toggle', { state: userPaused ? 'pausado' : 'reproduciendo' });
+      });
     }
   }
 
@@ -204,7 +234,7 @@
     datoBtns.forEach(function (b) {
       b.addEventListener('click', function () { datoAuto = false; setDato(parseInt(b.dataset.step, 10)); });
     });
-    if (reduceMotion || !('IntersectionObserver' in window)) {
+    if (!('IntersectionObserver' in window)) {
       setDato(3);
     } else {
       var datoVisible = false;
@@ -440,7 +470,6 @@
       buildNodes();
       resetSim();
       summary();
-      if (reduceMotion) { draw(); }
     }
 
     function setMode(m) {
@@ -463,7 +492,6 @@
         }
       });
       summary();
-      if (reduceMotion) { nodes.forEach(function (n) { n.x = n.tx; n.y = n.ty; place(n); }); draw(); }
     }
 
     /* --- casos --- */
@@ -675,7 +703,7 @@
       requestAnimationFrame(frame);
     }
     function play() {
-      if (running || reduceMotion || !visible || document.hidden) { return; }
+      if (running || !visible || document.hidden) { return; }
       running = true;
       last = performance.now();
       requestAnimationFrame(frame);
@@ -690,7 +718,6 @@
       resizeTimer = setTimeout(function () {
         measure();
         nodes.forEach(function (n) { n.x = n.tx; n.y = n.ty; place(n); });
-        if (reduceMotion) { draw(); }
       }, 150);
     });
     document.addEventListener('visibilitychange', function () { if (document.hidden) { stop(); } else { play(); } });
@@ -698,10 +725,7 @@
       document.fonts.ready.then(function () { measure(); nodes.forEach(function (n) { n.x = n.tx; n.y = n.ty; place(n); }); });
     }
 
-    if (reduceMotion) {
-      setMode('ag');
-      draw();
-    } else if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
         visible = entries[0].isIntersecting;
         if (visible) {
@@ -889,7 +913,7 @@
       if (e.target.type !== 'radio') { return; }
       var from = dIndex;
       track(from === 0 ? 'diagnostic_start' : 'diagnostic_step', { step: from + 1, question: e.target.name, answer: e.target.value });
-      setTimeout(function () { if (dIndex === from) { showStep(from + 1, true); } }, reduceMotion ? 0 : 320);
+      setTimeout(function () { if (dIndex === from) { showStep(from + 1, true); } }, 320);
     });
     dBack.addEventListener('click', function () { showStep(dIndex - 1, true); });
 

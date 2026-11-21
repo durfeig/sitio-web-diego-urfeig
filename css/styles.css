@@ -423,6 +423,36 @@ main, .footer { position: relative; z-index: 1; }
   object-fit: cover;
   display: block;
 }
+.stage-toggle {
+  position: absolute;
+  right: 10px; bottom: 10px;
+  z-index: 2;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(6, 7, 11, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  opacity: 0.75;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+.stage-toggle:hover, .stage-toggle:focus-visible { opacity: 1; background: rgba(6, 7, 11, 0.8); }
+.stage-toggle::before {
+  /* dos barras: pausa */
+  content: '';
+  width: 12px; height: 14px;
+  border-inline: 4px solid #fff;
+}
+.stage-toggle[aria-pressed="true"]::before {
+  /* triángulo: reproducir */
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 13px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 3px;
+}
 .stage-screen::after {
   /* integra el video al sitio: tinte y viñeta */
   content: '';
@@ -1559,19 +1589,29 @@ main, .footer { position: relative; z-index: 1; }
   .mode-btn { padding: 0 14px; }
 }
 
+/* Movimiento reducido (opción de accesibilidad del sistema).
+   Se apaga lo que mueve áreas grandes de la pantalla: deslizamientos, cintas,
+   flotación e inclinación. Lo que es contenido sigue andando: el video (con
+   botón de pausa), los flujos de roles y la frase que rota, ahora con fundido. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    transition-delay: 0ms !important;
-  }
-  .js .reveal, .js .hero-anim { opacity: 1; translate: 0 0; }
-  .marquee-track, .ticker-track { animation: none; }
-  .marquee-track { flex-wrap: wrap; justify-content: center; width: auto; row-gap: 20px; }
-  .marquee-track [aria-hidden="true"] { display: none; }
+  .js .reveal, .js .hero-anim { translate: 0 0; }
+  .stage-tilt { animation: none; }
+  .rot-item, .rot-item.is-out { transform: none; transition: opacity 0.6s ease; }
   .ticker { transform: none; }
+  .ticker-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+    padding-inline: var(--gutter);
+    font-size: clamp(1.3rem, 3.4vw, 2.4rem);
+  }
+  .ticker-track > :nth-child(n + 9) { display: none; }
+  .ticker-track i { animation: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; width: auto; row-gap: 20px; }
+  .marquee-track [aria-hidden="true"] { display: none; }
 }
 
 /* Texto solo para lectores de pantalla */
