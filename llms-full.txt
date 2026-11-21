@@ -2,7 +2,7 @@
 
 > Speaker y consultor de inteligencia artificial, agentes y datos para empresas de Argentina y Latinoamérica. Economista y data scientist. AI Transformation Director en Ukelele. Ex Director Ejecutivo de CACE (Cámara Argentina de Comercio Electrónico) y actual Director de su Comisión de Data.
 
-Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: agentes que ejecutan, personas que deciden.
+Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: la transformación con IA es primero cultural; agentes que ejecutan, personas que deciden.
 
 ## Datos clave
 
@@ -77,9 +77,13 @@ De cada 100 empresas, 88 usan IA en al menos una función, 39 ven algún impacto
 
 Diego Urfeig es speaker y consultor de inteligencia artificial, economista (UBA, con honores) y data scientist. Es AI Transformation Director en Ukelele. Fue Director Ejecutivo de CACE, la Cámara Argentina de Comercio Electrónico, durante más de ocho años, y hoy dirige su Comisión de Data. Fundó dos empresas, entre ellas Incremental, y lleva más de 150 charlas dadas y más de 20 años de docencia.
 
-### ¿De qué temas habla Diego Urfeig en sus charlas?
+### ¿De qué habla Diego Urfeig en sus charlas?
 
-Da charlas concretas sobre cómo implementar inteligencia artificial en una empresa: cómo armar un agente que responda las devoluciones, cómo pasar de armar reportes a decidir con un agente de pauta, cómo preguntarle a los datos en castellano, cómo evaluar si un agente trabajó bien (evals y jueces), qué pedirle a la IA, cómo rediseñar un puesto cuando una parte la hace un agente y cómo empezar a transformar una empresa en dos meses.
+De que la transformación con inteligencia artificial es, primero, un cambio cultural. Las herramientas ya están disponibles; lo que cambia los resultados es que las personas de la empresa las incorporen, entiendan su potencial y cambien la forma de pensar su propio trabajo. Sus charlas buscan ese cambio de mindset con casos concretos: un agente que responde las devoluciones, uno que propone cambios en la pauta, cómo preguntarle a los datos en castellano, cómo saber si un agente trabajó bien y cómo rediseñar un puesto cuando una parte la hace un agente.
+
+### ¿Por qué el cambio con IA en una empresa es primero cultural?
+
+Porque la tecnología ya no es el límite. Un equipo externo puede implementar herramientas y agentes, y eso suma. Pero el salto se da cuando la gente de adentro cambia el mindset: entiende lo que la IA puede hacer, la incorpora a su trabajo diario y empieza a proponer sus propios proyectos. Ahí la evolución deja de depender de un proveedor y el cambio se extiende a toda la organización, de un área a otra.
 
 ### ¿Cómo cambia un puesto de trabajo cuando se suma un agente de IA?
 
@@ -87,7 +91,7 @@ Las tareas repetitivas del proceso pasan al agente y la persona se queda con las
 
 ### ¿Por qué muchas empresas usan IA y pocas obtienen resultados?
 
-El 88% de las empresas ya usa IA en al menos una función, el 39% ve algún impacto en sus resultados y solo cerca del 6% captura valor significativo, según McKinsey (The State of AI in 2025, encuesta global a 1.993 personas). Las que capturan valor tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan, en lugar de sumar IA a los procesos que ya tenían.
+El 88% de las empresas ya usa IA en al menos una función, el 39% ve algún impacto en sus resultados y solo cerca del 6% captura valor significativo, según McKinsey (The State of AI in 2025, encuesta global a 1.993 personas). Las que capturan valor tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan, en lugar de sumar IA a los procesos que ya tenían. Rediseñar el trabajo lo hacen las personas de cada equipo: por eso el cambio es primero cultural.
 
 ### ¿Cuánto dura una charla y en qué formatos se da?
 

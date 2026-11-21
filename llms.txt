@@ -2,7 +2,7 @@
 
 > Speaker y consultor de inteligencia artificial, agentes y datos para empresas de Argentina y Latinoamérica. Economista y data scientist. AI Transformation Director en Ukelele. Ex Director Ejecutivo de CACE (Cámara Argentina de Comercio Electrónico) y actual Director de su Comisión de Data.
 
-Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: agentes que ejecutan, personas que deciden.
+Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: la transformación con IA es primero cultural; agentes que ejecutan, personas que deciden.
 
 ## Datos clave
 
