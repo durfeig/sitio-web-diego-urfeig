@@ -19,7 +19,7 @@ Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: la tran
 
 - [¿Qué te pasa hoy?](https://www.diegourfeig.com/#dolores): los problemas más comunes y la charla que resuelve cada uno
 - [Roles: cómo cambia un puesto con un agente](https://www.diegourfeig.com/#roles): seis roles, antes y después
-- [Charlas](https://www.diegourfeig.com/#charlas): siete charlas con títulos, público y duración
+- [Charlas](https://www.diegourfeig.com/#charlas): siete charlas (cultura, resultados, qué pedirle a la IA, roles, liderazgo, confianza y plan de arranque)
 - [Formatos](https://www.diegourfeig.com/#servicios): keynotes, workshops, consultoría y formación
 - [IA en 1 minuto](https://www.diegourfeig.com/#contenido): serie de videos
 - [Sobre Diego](https://www.diegourfeig.com/#sobre-diego): biografía y credenciales
