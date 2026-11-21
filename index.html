@@ -14,14 +14,14 @@
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- SEO PRIMARY -->
-  <title>Diego Urfeig | Speaker de Datos e Inteligencia Artificial para Empresas en LATAM</title>
+  <title>Diego Urfeig | Speaker de Inteligencia Artificial, Agentes y Datos para Empresas en LATAM</title>
   <meta name="description"
-    content="Diego Urfeig, economista y data scientist: speaker y consultor de inteligencia artificial y datos para empresas de LATAM. Charlas, keynotes, workshops y consultoría estratégica de IA.">
+    content="Diego Urfeig, economista y data scientist: speaker y consultor de inteligencia artificial para empresas de LATAM. Charlas y workshops concretos sobre agentes de IA, datos y cómo cambian los roles de trabajo.">
   <meta name="keywords"
-    content="speaker inteligencia artificial, speaker datos, consultor IA empresas, charlas inteligencia artificial, keynote IA, workshop inteligencia artificial, implementación IA empresas, adopción inteligencia artificial, transformación digital IA, consultoría estratégica inteligencia artificial, IA para organizaciones, por qué fallan proyectos IA, brecha adopción IA, inteligencia artificial LATAM, inteligencia artificial Argentina, Diego Urfeig, speaker IA latinoamerica, e-commerce inteligencia artificial, cultura organizacional IA, formación equipos IA">
+    content="speaker inteligencia artificial, speaker agentes de IA, speaker datos, consultor IA empresas, charlas inteligencia artificial, keynote IA, workshop inteligencia artificial, implementación IA empresas, agentes de IA atención al cliente, automatizar devoluciones con IA, adopción inteligencia artificial, transformación digital IA, IA para organizaciones, inteligencia artificial LATAM, inteligencia artificial Argentina, Diego Urfeig, speaker IA latinoamerica, e-commerce inteligencia artificial, cultura organizacional IA, formación equipos IA">
   <meta name="author" content="Diego Urfeig">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0E0E10">
+  <meta name="theme-color" content="#06070B">
   <link rel="canonical" href="https://www.diegourfeig.com/">
 
   <!-- GEO / LANGUAGE -->
@@ -32,18 +32,18 @@
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.diegourfeig.com/">
-  <meta property="og:title" content="Diego Urfeig | Speaker de Datos e Inteligencia Artificial">
+  <meta property="og:title" content="Diego Urfeig | Speaker de IA, agentes y datos">
   <meta property="og:description"
-    content="De cada 100 empresas, 88 ya usan IA y solo 6 capturan valor de verdad. Charlas y workshops para equipos que quieren decidir con datos.">
+    content="Los agentes ya pueden responder devoluciones, armar reportes y conciliar facturas. Charlas y workshops para decidir qué delegar y cómo cambia cada rol.">
   <meta property="og:image" content="https://www.diegourfeig.com/assets/og-image.jpg">
   <meta property="og:locale" content="es_AR">
-  <meta property="og:site_name" content="Diego Urfeig, speaker de datos e IA">
+  <meta property="og:site_name" content="Diego Urfeig, speaker de IA y datos">
 
   <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Diego Urfeig | Speaker de Datos e Inteligencia Artificial">
+  <meta name="twitter:title" content="Diego Urfeig | Speaker de IA, agentes y datos">
   <meta name="twitter:description"
-    content="De cada 100 empresas, 88 ya usan IA y solo 6 capturan valor de verdad. Charlas y workshops para equipos que quieren decidir con datos.">
+    content="Los agentes ya pueden responder devoluciones, armar reportes y conciliar facturas. Charlas y workshops para decidir qué delegar y cómo cambia cada rol.">
   <meta name="twitter:image" content="https://www.diegourfeig.com/assets/og-image.jpg">
 
   <!-- FAVICON -->
@@ -53,10 +53,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="preload" as="image" href="assets/video/hero-poster.jpg">
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Three.js (escena 3D) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -67,29 +76,32 @@
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
+  <!-- Escena 3D: un giroscopio que acompaña todo el recorrido -->
+  <canvas class="scene" id="scene" aria-hidden="true"></canvas>
+
   <!-- ============================================================
        HEADER
   ============================================================ -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Diego Urfeig, inicio">
-        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-mark" aria-hidden="true"><i></i><i></i></span>
         <span class="logo-text">Diego Urfeig</span>
       </a>
 
       <nav class="nav-menu" id="navMenu" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a href="#problema" class="nav-link">El dato</a></li>
+          <li><a href="#roles" class="nav-link">Roles</a></li>
           <li><a href="#charlas" class="nav-link">Charlas</a></li>
           <li><a href="#servicios" class="nav-link">Formatos</a></li>
           <li><a href="#contenido" class="nav-link">IA en 1 minuto</a></li>
           <li><a href="#sobre-diego" class="nav-link">Sobre Diego</a></li>
         </ul>
-        <a href="#contacto" class="btn btn-primary nav-cta">Reservar una charla</a>
+        <a href="#contacto" class="btn btn-primary nav-cta"><span>Reservar una charla</span></a>
       </nav>
 
       <div class="header-actions">
-        <a href="#contacto" class="btn btn-primary btn-sm header-cta">Reservar una charla</a>
+        <a href="#contacto" class="btn btn-primary btn-sm header-cta"><span>Reservar una charla</span></a>
         <button class="menu-btn" id="mobileMenuBtn" aria-label="Abrir menú" aria-expanded="false"
           aria-controls="navMenu">
           <span></span><span></span>
@@ -105,55 +117,71 @@
          HERO
     ============================================================ -->
     <section class="hero" id="hero" aria-label="Presentación">
-      <div class="hero-media" aria-hidden="true">
-        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
-          poster="assets/video/hero-poster.jpg">
-          <source src="assets/video/hero-loop.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="container hero-inner">
+      <div class="container hero-grid">
         <div class="hero-copy">
           <p class="kicker hero-anim" style="--d: 0">
-            <span>Speaker</span><i></i><span>Datos e inteligencia artificial</span>
+            <span class="kicker-dot" aria-hidden="true"></span>Speaker · IA aplicada, agentes y datos
           </p>
 
-          <h1 class="hero-h1">
-            <span class="line"><span class="hero-anim" style="--d: 1">La IA ya hace casi</span></span>
-            <span class="line"><span class="hero-anim" style="--d: 2">todo lo que le pedís.</span></span>
-            <span class="line"><span class="hero-anim" style="--d: 3">Todavía no sabe</span></span>
-            <span class="line"><span class="hero-anim" style="--d: 4"><em>qué pedir.</em></span></span>
+          <h1 class="hero-h1"
+            aria-label="Los agentes ya pueden responder devoluciones, armar tus reportes y conciliar facturas. Vos decidís qué delegar.">
+            <span class="h1-line hero-anim" style="--d: 1" aria-hidden="true">Los agentes ya pueden</span>
+            <span class="h1-rot hero-anim" style="--d: 2" id="heroRot" aria-hidden="true">
+              <span class="rot-item is-on">responder devoluciones.</span>
+              <span class="rot-item">armar tus reportes.</span>
+              <span class="rot-item">conciliar facturas.</span>
+              <span class="rot-item">ordenar los CV.</span>
+              <span class="rot-item">ajustar tu pauta.</span>
+            </span>
+            <span class="h1-line hero-anim" style="--d: 3" aria-hidden="true">Vos decidís <em>qué delegar.</em></span>
           </h1>
 
-          <p class="hero-sub hero-anim" style="--d: 5">
-            Soy Diego Urfeig, economista y data scientist. Doy charlas y workshops para equipos
-            que quieren decidir con datos: qué medir, qué delegar en un agente y qué sigue
-            dependiendo del criterio de las personas.
+          <p class="hero-sub hero-anim" style="--d: 4">
+            Soy Diego Urfeig, economista y data scientist. Doy charlas y workshops donde tu equipo
+            ve, con casos concretos, qué parte del trabajo pasa a un agente y qué queda en manos
+            de las personas.
           </p>
 
-          <div class="hero-ctas hero-anim" style="--d: 6">
+          <div class="hero-ctas hero-anim" style="--d: 5">
             <a href="#contacto" class="btn btn-primary btn-lg">
-              Quiero una charla en mi evento
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
+              <span>Quiero una charla en mi evento
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
             </a>
-            <a href="#charlas" class="btn btn-ghost btn-lg">Ver las charlas</a>
+            <a href="#roles" class="btn btn-ghost btn-lg">Ver cómo cambia un rol</a>
           </div>
 
-          <ul class="hero-facts hero-anim" style="--d: 7">
+          <ul class="hero-facts hero-anim" style="--d: 6">
             <li><strong>150+</strong><span>charlas dadas</span></li>
             <li><strong>20+</strong><span>años de docencia</span></li>
             <li><strong>Hot Sale y CyberMonday</strong><span>los creé en Argentina</span></li>
           </ul>
         </div>
-      </div>
 
-      <a href="#contenido" class="hero-credit hero-anim" style="--d: 8">
-        <span class="rec" aria-hidden="true"></span>
-        De «Qué pedir», episodio #36 de IA en 1 minuto
-      </a>
+        <figure class="stage hero-anim" style="--d: 3" id="stage">
+          <div class="stage-tilt tilt" data-tilt="6">
+            <div class="stage-frame">
+              <div class="stage-screen">
+                <div class="stage-player" aria-hidden="true">
+                  <div id="ytPlayer" data-video="rYpVf7s35n0" data-start="1550" data-end="1606"></div>
+                </div>
+                <div class="stage-cover" aria-hidden="true">
+                  <span class="stage-bars"><i></i><i></i><i></i><i></i><i></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="stage-cap">
+            <span class="rec" aria-hidden="true"></span>
+            <span>En el panel de IA de la Convención Anual CAMARCO 2026</span>
+            <a href="https://www.youtube.com/watch?v=rYpVf7s35n0&amp;t=1512s" target="_blank"
+              rel="noopener noreferrer">Ver en YouTube</a>
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- ============================================================
@@ -170,7 +198,7 @@
           <img src="assets/logos/NewBalance.png" alt="New Balance" loading="lazy" width="60" height="60">
           <img src="assets/logos/BAncoProvincia.png" alt="Banco Provincia" loading="lazy" width="60" height="60">
           <img src="assets/logos/Portsaid.png" alt="Port Said" loading="lazy" width="60" height="60">
-          <img class="inv" src="assets/logos/rouge.png" alt="Rouge" loading="lazy" width="60" height="60">
+          <img class="keep" src="assets/logos/rouge.png" alt="Rouge" loading="lazy" width="60" height="60">
           <img src="assets/logos/BSG.jpeg" alt="BSG" loading="lazy" width="60" height="60">
           <img src="assets/logos/sarkany_logo.jpeg" alt="Sarkany" loading="lazy" width="60" height="60">
         </div>
@@ -178,113 +206,103 @@
     </section>
 
     <!-- ============================================================
-         EL DATO (scrollytelling)
+         ROLES: flujos vivos
     ============================================================ -->
-    <section class="section" id="problema">
+    <section class="section" id="roles">
       <div class="container">
         <header class="sec-head reveal">
-          <div class="sec-rule"><span>El dato</span><i></i><span>01</span></div>
-          <h2>De cada 100 empresas, <em>¿cuántas ganan algo con la IA?</em></h2>
-          <p>Antes de hablar de herramientas, miremos los números. Bajá y vas a ver cómo se
-            reparten 100 empresas frente a la IA.</p>
+          <div class="sec-rule"><span>Roles</span><i></i><span>01</span></div>
+          <h2>Elegí un rol y mirá <em>cómo cambia.</em></h2>
+          <p>Cada punto es un caso que entra. Arriba, lo que hace la persona. Abajo, lo que hace
+            el agente. Pasá de «Hoy» a «Con un agente» y mirá qué pasos se mudan.</p>
         </header>
 
-        <div class="scrolly" id="scrolly">
-          <div class="scrolly-graphic">
-            <figure class="waffle-fig">
-              <div class="waffle-meta" aria-live="polite">
-                <span class="waffle-num" id="waffleNum">100</span>
-                <span class="waffle-label" id="waffleLabel">empresas</span>
+        <div class="roles reveal">
+          <div class="role-tabs" id="roleTabs" role="tablist" aria-label="Elegí un rol"></div>
+
+          <div class="flow-card">
+            <div class="flow-top">
+              <div class="mode" role="group" aria-label="Momento">
+                <button class="mode-btn is-on" data-mode="hoy" aria-pressed="true">Hoy</button>
+                <button class="mode-btn" data-mode="ag" aria-pressed="false">Con un agente</button>
+                <span class="mode-thumb" aria-hidden="true"></span>
               </div>
-              <div class="waffle" id="waffle" role="img"
-                aria-label="Cuadrícula de 100 puntos. 88 empresas usan IA, 39 ven algún impacto en resultados y 6 capturan valor significativo."></div>
-              <ul class="waffle-legend" aria-hidden="true">
-                <li class="k-use"><i></i>Usa IA</li>
-                <li class="k-imp"><i></i>Ve algún impacto</li>
-                <li class="k-high"><i></i>Captura valor</li>
+              <ul class="flow-legend" aria-hidden="true">
+                <li class="lg-h"><i></i>Persona</li>
+                <li class="lg-a"><i></i>Agente</li>
+                <li class="lg-x"><i></i>Caso que pide criterio</li>
               </ul>
-              <figcaption class="src">Fuente: McKinsey, <cite>The State of AI in 2025</cite>. Encuesta global, n = 1.993.</figcaption>
-            </figure>
+              <dl class="flow-stats">
+                <div><dt>Resueltos</dt><dd id="statDone">0</dd></div>
+                <div><dt>Esperando</dt><dd id="statWait">0</dd></div>
+              </dl>
+            </div>
+
+            <div class="flow" id="flow">
+              <canvas id="flowCanvas" aria-hidden="true"></canvas>
+              <span class="lane-label lane-h" aria-hidden="true">Persona</span>
+              <span class="lane-label lane-a" aria-hidden="true">Agente</span>
+              <ol class="flow-nodes" id="flowNodes" aria-label="Pasos del proceso"></ol>
+            </div>
+
+            <div class="flow-sum" aria-live="polite">
+              <p class="flow-count" id="flowCount"></p>
+              <p class="flow-change" id="flowChange"></p>
+              <p class="flow-note">Simulación ilustrativa: los ritmos son de ejemplo.</p>
+            </div>
           </div>
 
-          <ol class="scrolly-steps">
-            <li class="step" data-step="0" data-num="100" data-label="empresas">
-              <span class="step-n">00</span>
-              <h3>Tomemos 100 empresas.</h3>
-              <p>Cada punto es una. De todos los rubros y tamaños, como las que responden la
-                encuesta global que McKinsey hace todos los años.</p>
-            </li>
-            <li class="step" data-step="1" data-num="88" data-label="usan IA">
-              <span class="step-n">01</span>
-              <h3>88 ya usan IA.</h3>
-              <p>La tienen en al menos una función del negocio. Un año antes eran 78. Adoptarla
-                dejó de ser una ventaja: es el punto de partida.</p>
-            </li>
-            <li class="step" data-step="2" data-num="39" data-label="ven algún impacto">
-              <span class="step-n">02</span>
-              <h3>39 ven algún impacto en sus resultados.</h3>
-              <p>Y la mayoría de esas 39 dice que la IA explica menos del 5% de su ganancia
-                operativa. Hay uso, y todavía poco resultado.</p>
-            </li>
-            <li class="step" data-step="3" data-num="6" data-label="capturan valor">
-              <span class="step-n">03</span>
-              <h3>6 capturan valor de verdad.</h3>
-              <p>Al menos el 5% de su ganancia operativa viene de la IA. McKinsey las llama
-                <em>high performers</em>. Son 6 de cada 100.</p>
-            </li>
-            <li class="step" data-step="4" data-num="6" data-label="rediseñaron su trabajo">
-              <span class="step-n">04</span>
-              <h3>¿Qué hicieron distinto esas 6?</h3>
-              <p>Tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan,
-                en lugar de sumar IA a los procesos que ya tenían. Ese cambio lo hacen las
-                personas, y de eso hablo en mis charlas.</p>
-              <a href="#charlas" class="link-arrow">Ver las charlas</a>
-            </li>
-          </ol>
+          <p class="roles-cta">¿Querés ver este cambio con los procesos de tu equipo?
+            <a href="#contacto" class="link-arrow">Armemos la charla</a></p>
         </div>
+      </div>
+    </section>
 
-        <div class="evidence">
-          <p class="evidence-title reveal">El patrón se repite en otras mediciones</p>
-          <div class="evidence-grid">
-            <article class="stat reveal">
-              <div class="stat-num"><span data-count="95">95</span>%</div>
-              <div class="stat-bar"><i style="--w: 95%"></i></div>
-              <p>de los pilotos de IA generativa no muestra impacto medible en los resultados.</p>
-              <span class="src">MIT NANDA, <cite>The GenAI Divide</cite>, 2025</span>
-            </article>
-            <article class="stat reveal">
-              <div class="stat-num"><span data-count="42">42</span>%</div>
-              <div class="stat-bar"><i style="--w: 42%"></i></div>
-              <p>de las empresas abandonó la mayoría de sus iniciativas de IA. Un año antes era el 17%.</p>
-              <span class="src">S&amp;P Global Market Intelligence, 2025</span>
-            </article>
-            <article class="stat reveal">
-              <div class="stat-num"><span data-count="80">80</span>%</div>
-              <div class="stat-bar"><i style="--w: 80%"></i></div>
-              <p>de los proyectos de IA fracasa según las estimaciones que recoge RAND: el doble que los proyectos de tecnología sin IA.</p>
-              <span class="src">RAND Corporation, 2024</span>
-            </article>
+    <!-- Cinta en movimiento -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Agentes que ejecutan</span><i></i><span class="out">Personas que deciden</span><i></i>
+        <span>Datos que se pueden preguntar</span><i></i><span class="out">Roles que cambian</span><i></i>
+        <span>Agentes que ejecutan</span><i></i><span class="out">Personas que deciden</span><i></i>
+        <span>Datos que se pueden preguntar</span><i></i><span class="out">Roles que cambian</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         EL DATO (versión compacta)
+    ============================================================ -->
+    <section class="section section--tight" id="problema">
+      <div class="container">
+        <div class="dato reveal">
+          <div class="dato-copy">
+            <div class="sec-rule"><span>Por qué importa</span><i></i><span>02</span></div>
+            <h2>De cada 100 empresas, <em>6 capturan valor</em> con la IA.</h2>
+            <p>Esas 6 tienen casi tres veces más probabilidades de haber rediseñado cómo
+              trabajan, en lugar de sumar IA a los procesos que ya tenían. Rediseñar el trabajo
+              es lo que acabás de ver arriba.</p>
+            <ul class="dato-steps" id="datoSteps">
+              <li><button data-step="1"><strong>88</strong><span>usan IA en alguna función</span></button></li>
+              <li><button data-step="2"><strong>39</strong><span>ven algún impacto en resultados</span></button></li>
+              <li><button data-step="3"><strong>6</strong><span>capturan valor de verdad</span></button></li>
+            </ul>
+            <span class="src">Fuente: McKinsey, <cite>The State of AI in 2025</cite>. Encuesta global, n = 1.993.</span>
           </div>
+          <div class="waffle" id="waffle" role="img"
+            aria-label="Cuadrícula de 100 puntos. 88 empresas usan IA, 39 ven algún impacto en resultados y 6 capturan valor significativo."></div>
         </div>
-
-        <blockquote class="pullquote reveal">
-          <p>El problema no es ChatGPT. No es Claude. No es Copilot. El problema es que tu
-            organización <em>no sabe qué hacer con ellos.</em></p>
-          <cite>Diego Urfeig</cite>
-        </blockquote>
       </div>
     </section>
 
     <!-- ============================================================
          CHARLAS
     ============================================================ -->
-    <section class="section section--alt" id="charlas">
+    <section class="section" id="charlas">
       <div class="container">
         <header class="sec-head reveal">
-          <div class="sec-rule"><span>Charlas y keynotes</span><i></i><span>02</span></div>
-          <h2>Seis charlas. <em>Todas con datos sobre la mesa.</em></h2>
-          <p>Para equipos directivos, jornadas de innovación y eventos corporativos. Cada una se
-            adapta a tu industria y a cuánto camino recorrió tu organización con la IA.</p>
+          <div class="sec-rule"><span>Charlas y keynotes</span><i></i><span>03</span></div>
+          <h2>Charlas que terminan en <em>algo que podés armar.</em></h2>
+          <p>Cada una parte de un problema concreto y muestra cómo se resuelve, paso por paso.
+            Se adaptan a tu industria y a los procesos de tu equipo.</p>
         </header>
 
         <div class="talks" id="talks">
@@ -293,22 +311,22 @@
             <h3>
               <button class="talk-head" aria-expanded="true" aria-controls="talk-1" id="talk-1-btn">
                 <span class="talk-n">01</span>
-                <span class="talk-title">De los datos al dinero: IA aplicada al análisis de negocios</span>
-                <span class="talk-tag">Datos y analytics</span>
+                <span class="talk-title">Cómo armar un agente que responda las devoluciones por vos</span>
+                <span class="talk-tag">Atención al cliente</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-1" role="region" aria-labelledby="talk-1-btn">
               <div class="talk-body-inner">
-                <p>Casi todas las empresas tienen datos y pocas los convierten en decisiones. Con
-                  casos reales muestro cómo la IA encuentra patrones, anticipa el comportamiento de
-                  los clientes y ajusta precios, y qué hay que medir para saber si funcionó.</p>
+                <p>El caso completo, de punta a punta: qué lee el agente, qué política aplica,
+                  cuándo responde solo y cuándo te deriva el caso. Con los errores típicos y cómo
+                  medir si está respondiendo bien.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>Equipos de finanzas, retail, logística y e-commerce</dd></div>
-                  <div><dt>Duración</dt><dd>60 a 90 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>El mapa del flujo y la lista de casos que no conviene delegar</dd></div>
+                  <div><dt>Para quién</dt><dd>Equipos de atención al cliente, e-commerce y operaciones</dd></div>
+                  <div><dt>Duración</dt><dd>45 a 75 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="De los datos al dinero">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="Un agente que responda las devoluciones">Reservar esta charla</a>
               </div>
             </div>
           </article>
@@ -317,23 +335,22 @@
             <h3>
               <button class="talk-head" aria-expanded="false" aria-controls="talk-2" id="talk-2-btn">
                 <span class="talk-n">02</span>
-                <span class="talk-title">La brecha de IA: por qué el 95% de los pilotos no escala (y cómo evitarlo)</span>
-                <span class="talk-tag">Estrategia</span>
+                <span class="talk-title">De armar reportes a decidir: un agente que te dice qué cambiar en tu pauta</span>
+                <span class="talk-tag">Marketing y pauta</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-2" role="region" aria-labelledby="talk-2-btn">
               <div class="talk-body-inner">
-                <p>Con estudios de MIT, McKinsey y Anthropic, muestro la paradoja de la adopción:
-                  las empresas invierten millones y una minoría ve retorno. Qué separa a las que
-                  capturan valor del resto, con casos concretos y un plan que se puede aplicar
-                  desde el primer día.</p>
+                <p>Cómo pasa un equipo de juntar números a decidir con ellos. El agente baja los
+                  datos, detecta qué campaña anda mal y propone el cambio con el dato que lo
+                  justifica. La persona aprueba.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>Equipos directivos y jornadas de innovación</dd></div>
-                  <div><dt>Duración</dt><dd>45 a 90 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>Qué pedirle al agente, qué revisar antes de aprobar y qué dejar afuera</dd></div>
+                  <div><dt>Para quién</dt><dd>Equipos de marketing, growth y agencias</dd></div>
+                  <div><dt>Duración</dt><dd>45 a 75 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="La brecha de IA">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="De armar reportes a decidir">Reservar esta charla</a>
               </div>
             </div>
           </article>
@@ -342,23 +359,22 @@
             <h3>
               <button class="talk-head" aria-expanded="false" aria-controls="talk-3" id="talk-3-btn">
                 <span class="talk-n">03</span>
-                <span class="talk-title">Cultura primero: cómo preparar a tu organización para la IA</span>
-                <span class="talk-tag">Cultura</span>
+                <span class="talk-title">Preguntale a tus datos en castellano (y cómo saber si la respuesta está bien)</span>
+                <span class="talk-tag">Datos</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-3" role="region" aria-labelledby="talk-3-btn">
               <div class="talk-body-inner">
-                <p>La tecnología está lista. ¿Tus equipos también? Esta charla trabaja la parte
-                  más ignorada de una implementación: el cambio cultural. Por qué la resistencia
-                  de las personas es el mayor obstáculo y qué estrategias probadas logran que la
-                  IA se adopte en lugar de imponerse.</p>
+                <p>Casi todas las empresas tienen datos y pocas los convierten en decisiones.
+                  Muestro en vivo cómo una pregunta de negocio se vuelve una consulta, un gráfico y
+                  una recomendación, y qué controles hacen falta para confiar en el número.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>Líderes de equipo, RR. HH. y gestión del cambio</dd></div>
-                  <div><dt>Duración</dt><dd>45 a 75 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>Qué necesita tu base de datos para que esto funcione y por dónde empezar</dd></div>
+                  <div><dt>Para quién</dt><dd>Equipos de finanzas, comercial, retail y e-commerce</dd></div>
+                  <div><dt>Duración</dt><dd>60 a 90 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="Cultura primero">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="Preguntale a tus datos en castellano">Reservar esta charla</a>
               </div>
             </div>
           </article>
@@ -367,22 +383,22 @@
             <h3>
               <button class="talk-head" aria-expanded="false" aria-controls="talk-4" id="talk-4-btn">
                 <span class="talk-n">04</span>
-                <span class="talk-title">El stack de IA 2026: las herramientas que están redefiniendo las industrias</span>
-                <span class="talk-tag">Herramientas</span>
+                <span class="talk-title">Cómo saber si tu agente trabajó bien: evals y jueces</span>
+                <span class="talk-tag">Calidad</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-4" role="region" aria-labelledby="talk-4-btn">
               <div class="talk-body-inner">
-                <p>Un recorrido técnico y estratégico por lo que hay hoy: modelos de lenguaje,
-                  agentes autónomos, automatización de procesos y análisis predictivo. Y cómo
-                  evaluar cuál le sirve a cada organización, sin hype y con evidencia.</p>
+                <p>La IA ya hace casi cualquier tarea. Lo que no sabe es cuándo la terminó bien.
+                  Cómo escribir pruebas de sí o no sobre el resultado y cómo sumar un juez que
+                  revise antes de que el trabajo salga.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>Equipos de negocio y tecnología que eligen herramientas</dd></div>
-                  <div><dt>Duración</dt><dd>60 a 90 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>Un método para definir «bien hecho» en una tarea de tu equipo</dd></div>
+                  <div><dt>Para quién</dt><dd>Equipos que ya usan IA y necesitan confiar en lo que entrega</dd></div>
+                  <div><dt>Duración</dt><dd>45 a 60 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="El stack de IA 2026">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="Evals y jueces">Reservar esta charla</a>
               </div>
             </div>
           </article>
@@ -391,22 +407,22 @@
             <h3>
               <button class="talk-head" aria-expanded="false" aria-controls="talk-5" id="talk-5-btn">
                 <span class="talk-n">05</span>
-                <span class="talk-title">IA en e-commerce: más ingresos, menos costos, más mercado</span>
-                <span class="talk-tag">E-commerce</span>
+                <span class="talk-title">Qué pedirle a la IA: de dar tareas a dar objetivos</span>
+                <span class="talk-tag">Forma de trabajar</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-5" role="region" aria-labelledby="talk-5-btn">
               <div class="talk-body-inner">
-                <p>El e-commerce es donde el impacto de la IA se mide más fácil. Casos reales de
-                  personalización, atención al cliente, gestión de inventario y logística,
-                  contados por quien creó Hot Sale y CyberMonday en Argentina.</p>
+                <p>Hay tres niveles de uso: pedir algo y esperar, pedir con contexto, y dar el
+                  objetivo para que la IA proponga opciones. Con el mismo pedido resuelto en los
+                  tres niveles, para que se vea la diferencia.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>Líderes de retail, marketplaces y marcas DTC</dd></div>
-                  <div><dt>Duración</dt><dd>45 a 75 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>Cómo pasar tu trabajo de todos los días al tercer nivel</dd></div>
+                  <div><dt>Para quién</dt><dd>Toda la organización, sin conocimientos previos</dd></div>
+                  <div><dt>Duración</dt><dd>45 a 60 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="IA en e-commerce">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="Qué pedirle a la IA">Reservar esta charla</a>
               </div>
             </div>
           </article>
@@ -415,31 +431,30 @@
             <h3>
               <button class="talk-head" aria-expanded="false" aria-controls="talk-6" id="talk-6-btn">
                 <span class="talk-n">06</span>
-                <span class="talk-title">Hoja de ruta de IA: estrategia de implementación para ejecutivos</span>
-                <span class="talk-tag">Ejecutivos</span>
+                <span class="talk-title">Cómo rediseñar un puesto cuando una parte la hace un agente</span>
+                <span class="talk-tag">Dirección</span>
                 <span class="talk-plus" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="talk-body" id="talk-6" role="region" aria-labelledby="talk-6-btn">
               <div class="talk-body-inner">
-                <p>Un framework práctico para priorizar, planificar y medir iniciativas de IA:
-                  cómo identificar los casos de uso de mayor impacto, cómo medir el retorno real y
-                  cómo construir capacidad interna para escalar. Los participantes se van con un
-                  plan de acción.</p>
+                <p>Para quienes dirigen equipos. Qué tareas pasan al agente, qué decisiones quedan
+                  en las personas y cómo se conversa ese cambio con el equipo para que la IA se
+                  adopte en lugar de imponerse.</p>
                 <dl>
-                  <div><dt>Para quién</dt><dd>C-level y directores</dd></div>
-                  <div><dt>Duración</dt><dd>90 min</dd></div>
-                  <div><dt>Formato</dt><dd>Presencial o remoto</dd></div>
+                  <div><dt>Te llevás</dt><dd>Un mapa de un rol de tu empresa, antes y después</dd></div>
+                  <div><dt>Para quién</dt><dd>C-level, directores y RR. HH.</dd></div>
+                  <div><dt>Duración</dt><dd>60 a 90 min</dd></div>
                 </dl>
-                <a href="#contacto" class="link-arrow" data-talk="Hoja de ruta de IA">Reservar esta charla</a>
+                <a href="#contacto" class="link-arrow" data-talk="Rediseñar un puesto con agentes">Reservar esta charla</a>
               </div>
             </div>
           </article>
 
         </div>
 
-        <p class="talks-note reveal">¿Tenés otro tema en mente? Lo armamos a medida.
-          <a href="#contacto" class="link-arrow">Contame tu idea</a></p>
+        <p class="talks-note reveal">¿Tenés otro proceso en mente? Lo armamos a medida.
+          <a href="#contacto" class="link-arrow">Contame cuál</a></p>
       </div>
     </section>
 
@@ -449,47 +464,47 @@
     <section class="section" id="servicios">
       <div class="container">
         <header class="sec-head reveal">
-          <div class="sec-rule"><span>Formatos</span><i></i><span>03</span></div>
+          <div class="sec-rule"><span>Formatos</span><i></i><span>04</span></div>
           <h2>De una charla a un <em>acompañamiento completo.</em></h2>
           <p>Vos elegís por dónde empezar.</p>
         </header>
 
         <div class="formats">
-          <article class="format reveal">
+          <article class="format tilt reveal" data-tilt="5">
             <span class="format-n">A</span>
             <h3>Keynotes y charlas</h3>
             <p>Para eventos corporativos, conferencias y jornadas de innovación. Entre 45 y 90
-              minutos para cambiar cómo tu organización piensa la IA.</p>
+              minutos sobre un problema concreto, con el caso armado.</p>
             <ul>
               <li>Adaptadas a tu industria y audiencia</li>
               <li>Presencial o remoto</li>
               <li>Material de seguimiento incluido</li>
             </ul>
           </article>
-          <article class="format reveal">
+          <article class="format tilt reveal" data-tilt="5">
             <span class="format-n">B</span>
             <h3>Workshops de implementación</h3>
-            <p>Talleres de medio día o día completo para equipos directivos y líderes, sobre
-              casos de uso reales de tu organización.</p>
+            <p>Talleres de medio día o día completo. El equipo mapea un proceso propio y sale
+              con el diseño del agente que lo va a hacer.</p>
             <ul>
               <li>Diagnóstico previo del estado de IA</li>
               <li>Práctica con herramientas reales</li>
               <li>Hoja de ruta al terminar</li>
             </ul>
           </article>
-          <article class="format format--featured reveal">
+          <article class="format format--featured tilt reveal" data-tilt="5">
             <span class="format-n">C</span>
             <span class="format-badge">Más solicitado</span>
             <h3>Consultoría estratégica de IA</h3>
-            <p>Diagnóstico, priorización de casos de uso, selección de herramientas, métricas
-              de impacto y gestión del cambio. Se hace desde Ukelele.</p>
+            <p>Diagnóstico, priorización de procesos, diseño de los agentes, métricas de impacto
+              y gestión del cambio. Se hace desde Ukelele.</p>
             <ul>
               <li>Diagnóstico organizacional completo</li>
               <li>Roadmap a 90 días y a 12 meses</li>
               <li>Acompañamiento en la implementación</li>
             </ul>
           </article>
-          <article class="format reveal">
+          <article class="format tilt reveal" data-tilt="5">
             <span class="format-n">D</span>
             <h3>Formación de equipos</h3>
             <p>Programas de capacitación por área, desde fundamentos hasta uso avanzado de
@@ -507,11 +522,11 @@
     <!-- ============================================================
          CONTENIDO: IA en 1 minuto
     ============================================================ -->
-    <section class="section section--alt" id="contenido">
+    <section class="section" id="contenido">
       <div class="container">
         <div class="eps-layout">
           <header class="sec-head reveal">
-            <div class="sec-rule"><span>IA en 1 minuto</span><i></i><span>04</span></div>
+            <div class="sec-rule"><span>IA en 1 minuto</span><i></i><span>05</span></div>
             <h2>Una idea sobre IA, <em>en un minuto.</em></h2>
             <p>Cada episodio toma un tema que está cambiando cómo trabajamos y lo explica con el
               dato y la fuente. Dale play a cualquiera.</p>
@@ -524,7 +539,7 @@
 
           <div class="eps" id="eps">
             <article class="ep reveal">
-              <div class="ep-frame">
+              <div class="ep-frame tilt" data-tilt="7">
                 <video preload="none" playsinline poster="assets/video/ep27.jpg" src="assets/video/ep27.mp4"></video>
                 <button class="ep-play" aria-label="Reproducir episodio 27: Exportar energía, importar inteligencia">
                   <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
@@ -535,7 +550,7 @@
               <p class="ep-desc">Brasil concentra el 87,7% de las GPUs de la región. Argentina, el 2,3%.</p>
             </article>
             <article class="ep reveal">
-              <div class="ep-frame">
+              <div class="ep-frame tilt" data-tilt="7">
                 <video preload="none" playsinline poster="assets/video/ep36.jpg" src="assets/video/ep36.mp4"></video>
                 <button class="ep-play" aria-label="Reproducir episodio 36: Vos elegís qué pedir">
                   <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
@@ -546,7 +561,7 @@
               <p class="ep-desc">La IA ya hace casi todo lo que le pedís. Todavía no sabe qué pedir.</p>
             </article>
             <article class="ep reveal">
-              <div class="ep-frame">
+              <div class="ep-frame tilt" data-tilt="7">
                 <video preload="none" playsinline poster="assets/video/ep38.jpg" src="assets/video/ep38.mp4"></video>
                 <button class="ep-play" aria-label="Reproducir episodio 38: ¿En qué nivel estás?">
                   <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>
@@ -564,16 +579,16 @@
     <!-- ============================================================
          SOBRE DIEGO
     ============================================================ -->
-    <section class="section section--paper" id="sobre-diego">
+    <section class="section" id="sobre-diego">
       <div class="container">
         <div class="about">
-          <div class="about-media reveal">
+          <div class="about-media tilt reveal" data-tilt="5">
             <img src="assets/img/diego-urfeig.jpg" width="900" height="900" loading="lazy"
               alt="Diego Urfeig, speaker de datos e inteligencia artificial">
           </div>
 
           <div class="about-copy">
-            <div class="sec-rule reveal"><span>Sobre Diego</span><i></i><span>05</span></div>
+            <div class="sec-rule reveal"><span>Sobre Diego</span><i></i><span>06</span></div>
             <h2 class="reveal">Economista, data scientist <em>y docente.</em></h2>
 
             <div class="about-bio reveal">
@@ -617,9 +632,9 @@
       <div class="container">
         <div class="contact">
           <div class="contact-copy">
-            <div class="sec-rule reveal"><span>Contacto</span><i></i><span>06</span></div>
+            <div class="sec-rule reveal"><span>Contacto</span><i></i><span>07</span></div>
             <h2 class="reveal">Contame qué evento <em>tenés en mente.</em></h2>
-            <p class="reveal">Tu empresa, tu evento o el desafío que estás enfrentando. Respondo en menos
+            <p class="reveal">Tu empresa, tu evento o el proceso que querés resolver. Respondo en menos
               de 24 horas.</p>
 
             <ul class="contact-ways reveal">
@@ -667,7 +682,7 @@
               <div class="field field--full">
                 <label for="mensaje">Contame más</label>
                 <textarea id="mensaje" name="mensaje" rows="4"
-                  placeholder="Fecha tentativa, audiencia, tema que te interesa..."></textarea>
+                  placeholder="Fecha tentativa, audiencia, proceso o tema que te interesa..."></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-lg btn-full">
                 <span class="btn-text">Enviar consulta</span>
@@ -694,13 +709,13 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo" aria-label="Diego Urfeig, inicio">
-          <span class="logo-dot" aria-hidden="true"></span>
+          <span class="logo-mark" aria-hidden="true"><i></i><i></i></span>
           <span class="logo-text">Diego Urfeig</span>
         </a>
-        <p>Speaker de datos e inteligencia artificial.</p>
+        <p>Speaker de inteligencia artificial, agentes y datos.</p>
       </div>
       <nav class="footer-links" aria-label="Secciones">
-        <a href="#problema">El dato</a>
+        <a href="#roles">Roles</a>
         <a href="#charlas">Charlas</a>
         <a href="#servicios">Formatos</a>
         <a href="#contenido">IA en 1 minuto</a>
@@ -717,6 +732,7 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script type="module" src="js/scene.js"></script>
 
   <!-- ============================================================
        STRUCTURED DATA (Schema.org JSON-LD)
@@ -730,10 +746,11 @@
     "name": "Diego Urfeig",
     "url": "https://www.diegourfeig.com",
     "image": "https://www.diegourfeig.com/assets/img/diego-urfeig.jpg",
-    "jobTitle": "Speaker de Datos e Inteligencia Artificial y Consultor Estratégico de IA",
+    "jobTitle": "Speaker de Inteligencia Artificial, Agentes y Datos, y Consultor Estratégico de IA",
     "description": "Speaker, conferencista y consultor especializado en datos e inteligencia artificial aplicada a organizaciones. Ayuda a empresas de LATAM a cerrar la brecha entre adoptar IA y generar impacto real.",
     "knowsAbout": [
       "Inteligencia Artificial",
+      "Agentes de IA",
       "Machine Learning",
       "Ciencia de Datos",
       "Transformación Digital",
@@ -835,18 +852,26 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Por qué fracasan los proyectos de inteligencia artificial en las empresas?",
+        "name": "¿Qué temas cubre Diego Urfeig en sus charlas de inteligencia artificial?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "El 88% de las empresas ya usa IA en al menos una función, pero solo cerca del 6% captura valor significativo (McKinsey, The State of AI in 2025), y el 95% de los pilotos de IA generativa no muestra impacto medible en resultados (MIT NANDA, 2025). El limitante suele ser organizacional: las empresas que capturan valor rediseñan cómo trabajan en lugar de sumar IA a los procesos que ya tenían."
+          "text": "Diego Urfeig da charlas concretas sobre cómo implementar IA: cómo armar un agente que responda las devoluciones, cómo pasar de armar reportes a decidir con un agente de pauta, cómo preguntarle a los datos en castellano, cómo evaluar si un agente trabajó bien (evals y jueces), qué pedirle a la IA y cómo rediseñar un puesto cuando una parte la hace un agente."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Qué temas cubre Diego Urfeig en sus charlas de inteligencia artificial?",
+        "name": "¿Cómo cambia un puesto de trabajo cuando se suma un agente de IA?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Diego Urfeig ofrece seis charlas: De los datos al dinero (IA aplicada al análisis de negocios), La brecha de IA (por qué el 95% de los pilotos no escala), Cultura primero (cómo preparar a una organización para la IA), El stack de IA 2026 (las herramientas que redefinen las industrias), IA en e-commerce (más ingresos y menos costos) y Hoja de ruta de IA (estrategia de implementación para ejecutivos)."
+          "text": "Las tareas repetitivas del proceso pasan al agente y la persona se queda con las decisiones: definir la política, resolver los casos que piden criterio y revisar el resultado. Por ejemplo, en devoluciones el agente lee el pedido, busca la compra, aplica la política y responde, y la persona decide los casos dudosos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Por qué muchas empresas usan IA y pocas obtienen resultados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El 88% de las empresas ya usa IA en al menos una función, pero solo cerca del 6% captura valor significativo (McKinsey, The State of AI in 2025). Las que capturan valor tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan, en lugar de sumar IA a los procesos que ya tenían."
         }
       },
       {
@@ -863,14 +888,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Diego Urfeig trabaja con empresas de toda LATAM, desde grandes corporaciones hasta medianas empresas. Sus servicios están orientados a CEOs, CTOs, directores de RR. HH. y líderes que quieren implementar inteligencia artificial de forma efectiva."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo puede la inteligencia artificial generar impacto real en una organización?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Las organizaciones que capturan más valor de la IA tienen casi tres veces más probabilidades de haber rediseñado sus flujos de trabajo (McKinsey, 2025). No alcanza con implementar herramientas: las personas tienen que entenderlas, confiar en ellas y hacerlas propias. Diego Urfeig acompaña a las organizaciones en ese camino."
         }
       }
     ]
