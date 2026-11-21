@@ -3,6 +3,13 @@ Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
+# Una sola dirección: diegourfeig.com sin www pasa a www.diegourfeig.com
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^diegourfeig\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.diegourfeig.com/$1 [R=301,L]
+</IfModule>
+
 # Mientras el sitio vive en un subdominio de prueba, los buscadores no lo indexan.
 # En www.diegourfeig.com esta regla no se activa: no hay que tocar nada al pasarlo a titular.
 # La carpeta del subdominio vive dentro del sitio titular, así que también se bloquea por ruta.

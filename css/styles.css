@@ -42,6 +42,7 @@
 *::after { box-sizing: border-box; }
 
 html {
+  overflow-x: clip; /* la cinta inclinada es más ancha que la pantalla: que nunca genere scroll lateral */
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 16px);
   -webkit-text-size-adjust: 100%;
