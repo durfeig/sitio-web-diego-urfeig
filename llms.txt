@@ -1,0 +1,39 @@
+# Diego Urfeig
+
+> Speaker y consultor de inteligencia artificial, agentes y datos para empresas de Argentina y Latinoamérica. Economista y data scientist. AI Transformation Director en Ukelele. Ex Director Ejecutivo de CACE (Cámara Argentina de Comercio Electrónico) y actual Director de su Comisión de Data.
+
+Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: agentes que ejecutan, personas que deciden.
+
+## Datos clave
+
+- Nombre: Diego Urfeig
+- Qué hace: charlas, keynotes, workshops y consultoría de inteligencia artificial para empresas
+- Cargo actual: AI Transformation Director en Ukelele (agencia de growth)
+- Trayectoria: Director Ejecutivo de CACE durante más de 8 años; hoy Director de la Comisión de Data de CACE; fundador de dos empresas, entre ellas Incremental (consultora de CRO y experimentación adquirida por Ukelele)
+- Formación: economista (UBA, con honores), máster (UNGS), data scientist (Acámica); profesor de posgrado en estrategia digital y datos
+- Experiencia: más de 150 charlas, más de 90 capacitaciones, más de 20 años de docencia
+- Ubicación: Buenos Aires, Argentina. Trabaja con toda Latinoamérica, presencial o remoto
+- Idioma de las charlas: español
+
+## Secciones del sitio
+
+- [Roles: cómo cambia un puesto con un agente](https://www.diegourfeig.com/#roles): seis roles, antes y después
+- [Charlas](https://www.diegourfeig.com/#charlas): siete charlas con títulos, público y duración
+- [Formatos](https://www.diegourfeig.com/#servicios): keynotes, workshops, consultoría y formación
+- [IA en 1 minuto](https://www.diegourfeig.com/#contenido): serie de videos
+- [Sobre Diego](https://www.diegourfeig.com/#sobre-diego): biografía y credenciales
+- [Preguntas frecuentes](https://www.diegourfeig.com/#preguntas)
+- [Diagnóstico gratuito](https://www.diegourfeig.com/#diagnostico): cuestionario de cinco preguntas
+- [Contacto](https://www.diegourfeig.com/#contacto): formulario y WhatsApp
+
+## Contacto
+
+- Formulario: https://www.diegourfeig.com/#contacto
+- WhatsApp: https://wa.me/541133589585
+- LinkedIn: https://www.linkedin.com/in/diegourfeig/
+- Instagram: https://www.instagram.com/diegourfeig/
+- TikTok: https://www.tiktok.com/@durfeig
+
+## Más detalle
+
+- [Versión completa en texto](https://www.diegourfeig.com/llms-full.txt): charlas, roles, datos con fuente y preguntas frecuentes

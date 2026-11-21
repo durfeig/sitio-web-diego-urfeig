@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="8" fill="#06070B"/>
-  <ellipse cx="16" cy="16" rx="11" ry="4.6" fill="none" stroke="#22E1FF" stroke-width="2" transform="rotate(-28 16 16)"/>
-  <ellipse cx="16" cy="16" rx="11" ry="4.6" fill="none" stroke="#FF3EA5" stroke-width="2" transform="rotate(42 16 16)"/>
-  <circle cx="16" cy="16" r="3" fill="#F4F6FB"/>
+  <path d="M9 16h14" stroke="#8A5CFF" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="8" cy="16" r="4.6" fill="#FFB238"/>
+  <circle cx="24" cy="16" r="4.6" fill="#22E1FF"/>
+  <circle cx="16" cy="16" r="2.2" fill="#fff"/>
 </svg>

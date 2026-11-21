@@ -1,0 +1,43 @@
+# diegourfeig.com
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# Mientras el sitio vive en un subdominio de prueba, los buscadores no lo indexan.
+# En www.diegourfeig.com esta regla no se activa: no hay que tocar nada al pasarlo a titular.
+<IfModule mod_setenvif.c>
+  SetEnvIfNoCase Host "^(?!www\.)[a-z0-9-]+\.diegourfeig\.com$" SITIO_DE_PRUEBA
+</IfModule>
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow" env=SITIO_DE_PRUEBA
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Tipos de archivo
+<IfModule mod_mime.c>
+  AddType text/plain .txt
+  AddType video/mp4 .mp4
+  AddType image/svg+xml .svg
+  AddCharset utf-8 .html .css .js .txt .xml .svg
+</IfModule>
+
+# Compresión
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript text/plain application/xml image/svg+xml application/json
+</IfModule>
+
+# Caché: el HTML se revalida siempre; imágenes, video y fuentes duran un año
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/plain "access plus 1 hour"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
