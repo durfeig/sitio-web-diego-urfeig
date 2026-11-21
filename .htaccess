@@ -5,8 +5,10 @@ ErrorDocument 404 /404.html
 
 # Mientras el sitio vive en un subdominio de prueba, los buscadores no lo indexan.
 # En www.diegourfeig.com esta regla no se activa: no hay que tocar nada al pasarlo a titular.
+# La carpeta del subdominio vive dentro del sitio titular, así que también se bloquea por ruta.
 <IfModule mod_setenvif.c>
   SetEnvIfNoCase Host "^(?!www\.)[a-z0-9-]+\.diegourfeig\.com$" SITIO_DE_PRUEBA
+  SetEnvIf Request_URI "^/nuevo/" SITIO_DE_PRUEBA
 </IfModule>
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow" env=SITIO_DE_PRUEBA
