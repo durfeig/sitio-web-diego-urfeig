@@ -75,66 +75,24 @@
   }
 
   /* ----------------------------------------------------------
-     VIDEO DEL HERO: tramo del panel de CAMARCO, en loop y sin sonido
-     (reproductor oficial de YouTube; si no carga, queda la portada)
+     VIDEO DEL HERO: se pausa fuera de pantalla
   ---------------------------------------------------------- */
-  var stage = document.getElementById('stage');
-  var ytHolder = document.getElementById('ytPlayer');
-
-  function initStageVideo() {
-    if (!stage || !ytHolder || reduceMotion) { return; }
-    var videoId = ytHolder.dataset.video;
-    var start = parseInt(ytHolder.dataset.start, 10);
-    var end = parseInt(ytHolder.dataset.end, 10);
-    var player = null;
-    var timer = null;
-    var showTimer = null;
-    var shownOnce = false;
-
-    window.onYouTubeIframeAPIReady = function () {
-      player = new window.YT.Player('ytPlayer', {
-        videoId: videoId,
-        host: 'https://www.youtube-nocookie.com',
-        playerVars: {
-          autoplay: 1, mute: 1, controls: 0, start: start, playsinline: 1, rel: 0,
-          modestbranding: 1, iv_load_policy: 3, disablekb: 1, fs: 0, cc_load_policy: 0
-        },
-        events: {
-          onReady: function (e) { e.target.mute(); e.target.playVideo(); },
-          onStateChange: function (e) {
-            if (e.data === window.YT.PlayerState.PLAYING) {
-              // espera a que YouTube esconda su título antes de mostrar el video
-              clearTimeout(showTimer);
-              showTimer = setTimeout(function () { stage.classList.add('is-playing'); shownOnce = true; }, shownOnce ? 1200 : 3600);
-              if (!timer) {
-                timer = setInterval(function () {
-                  if (player.getCurrentTime && player.getCurrentTime() >= end) { player.seekTo(start, true); }
-                }, 400);
-              }
-            }
-            if (e.data === window.YT.PlayerState.PAUSED) { clearTimeout(showTimer); stage.classList.remove('is-playing'); }
-            if (e.data === window.YT.PlayerState.ENDED) { player.seekTo(start, true); player.playVideo(); }
-          },
-          onError: function () { stage.classList.add('is-error'); }
-        }
-      });
-    };
-
-    var tag = document.createElement('script');
-    tag.src = 'https://www.youtube.com/iframe_api';
-    tag.async = true;
-    document.head.appendChild(tag);
-
-    // se pausa cuando el hero queda fuera de pantalla
-    if ('IntersectionObserver' in window) {
+  var stageVideo = document.getElementById('stageVideo');
+  if (stageVideo) {
+    if (reduceMotion) {
+      stageVideo.removeAttribute('autoplay');
+      stageVideo.pause();
+    } else if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (entries) {
-        if (!player || !player.playVideo) { return; }
-        if (entries[0].isIntersecting) { player.playVideo(); } else { player.pauseVideo(); }
-      }, { threshold: 0.05 }).observe(stage);
+        if (entries[0].isIntersecting) {
+          var p = stageVideo.play();
+          if (p && p.catch) { p.catch(function () {}); }
+        } else {
+          stageVideo.pause();
+        }
+      }, { threshold: 0.05 }).observe(stageVideo);
     }
   }
-  if (document.readyState === 'complete') { initStageVideo(); }
-  else { window.addEventListener('load', initStageVideo); }
 
   /* ----------------------------------------------------------
      INCLINACIÓN 3D con el puntero
@@ -695,7 +653,7 @@
 
     function frame(now) {
       if (!running) { return; }
-      var dt = Math.min((now - last) / 1000, 0.05);
+      var dt = Math.max(0, Math.min((now - last) / 1000, 0.05));
       last = now;
       update(dt);
       draw();
@@ -871,6 +829,106 @@
         e.target.removeAttribute('aria-invalid');
       }
     });
+  }
+
+  /* ----------------------------------------------------------
+     DIAGNÓSTICO GRATUITO: cinco preguntas, de a una
+  ---------------------------------------------------------- */
+  var diagForm = document.getElementById('diagForm');
+  if (diagForm) {
+    var dSteps = slice(diagForm.querySelectorAll('.diag-step'));
+    var dBar = document.getElementById('diagBar');
+    var dStepN = document.getElementById('diagStepN');
+    var dBack = document.getElementById('diagBack');
+    var dSend = document.getElementById('diagSend');
+    var dDone = document.getElementById('diagDone');
+    var dError = document.getElementById('diagError');
+    var dIndex = 0;
+
+    var showStep = function (n, focus) {
+      dIndex = Math.max(0, Math.min(n, dSteps.length - 1));
+      dSteps.forEach(function (st, i) { st.classList.toggle('is-on', i === dIndex); });
+      dBar.style.transform = 'scaleX(' + ((dIndex + 1) / dSteps.length) + ')';
+      dStepN.textContent = 'Pregunta ' + (dIndex + 1) + ' de ' + dSteps.length;
+      dBack.hidden = dIndex === 0;
+      dSend.hidden = dIndex !== dSteps.length - 1;
+      if (focus) {
+        var first = dSteps[dIndex].querySelector('input:checked, input, textarea');
+        if (first) { first.focus({ preventScroll: true }); }
+      }
+    };
+
+    // al elegir una opción pasa sola a la siguiente pregunta
+    diagForm.addEventListener('change', function (e) {
+      if (e.target.type !== 'radio') { return; }
+      var from = dIndex;
+      setTimeout(function () { if (dIndex === from) { showStep(from + 1, true); } }, reduceMotion ? 0 : 320);
+    });
+    dBack.addEventListener('click', function () { showStep(dIndex - 1, true); });
+
+    diagForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var get = function (name) {
+        var el = diagForm.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : '';
+      };
+      var answers = { area: get('area'), dolor: get('dolor'), equipo: get('equipo'), ia: get('ia') };
+      var missing = ['area', 'dolor', 'equipo', 'ia'].filter(function (k) { return !answers[k]; });
+      if (missing.length) { showStep(['area', 'dolor', 'equipo', 'ia'].indexOf(missing[0]), true); return; }
+
+      var nombre = diagForm.querySelector('#dNombre');
+      var empresa = diagForm.querySelector('#dEmpresa');
+      var email = diagForm.querySelector('#dEmail');
+      var proceso = diagForm.querySelector('#dProceso');
+      var bad = [];
+      if (!nombre.value.trim()) { bad.push(nombre); }
+      if (!empresa.value.trim()) { bad.push(empresa); }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { bad.push(email); }
+      [nombre, empresa, email].forEach(function (el) {
+        var isBad = bad.indexOf(el) !== -1;
+        el.classList.toggle('is-invalid', isBad);
+        if (isBad) { el.setAttribute('aria-invalid', 'true'); } else { el.removeAttribute('aria-invalid'); }
+      });
+      if (bad.length) { bad[0].focus(); return; }
+
+      var text = dSend.querySelector('.btn-text');
+      var loading = dSend.querySelector('.btn-loading');
+      dSend.disabled = true; text.hidden = true; loading.hidden = false; dError.hidden = true;
+
+      fetch('https://formsubmit.co/ajax/elmaildediego@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre: nombre.value.trim(),
+          empresa: empresa.value.trim(),
+          email: email.value.trim(),
+          'area con mas dolor': answers.area,
+          'que pesa mas': answers.dolor,
+          'gente en el area': answers.equipo,
+          'uso de IA hoy': answers.ia,
+          'proceso que mas duele': proceso.value.trim() || '—',
+          _subject: 'Diagnóstico gratuito — ' + empresa.value.trim()
+        })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (!(data.success === 'true' || data.success === true)) { throw new Error('envío rechazado'); }
+          diagForm.classList.add('is-done');
+          dDone.hidden = false;
+          dDone.focus && dDone.setAttribute('tabindex', '-1');
+        })
+        .catch(function () {
+          dSend.disabled = false; text.hidden = false; loading.hidden = true; dError.hidden = false;
+        });
+    });
+
+    diagForm.addEventListener('input', function (e) {
+      if (e.target.classList.contains('is-invalid')) {
+        e.target.classList.remove('is-invalid');
+        e.target.removeAttribute('aria-invalid');
+      }
+    });
+    showStep(0, false);
   }
 
   /* ----------------------------------------------------------

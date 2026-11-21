@@ -55,14 +55,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     rel="stylesheet">
+  <link rel="preload" as="image" href="assets/video/hero-ego.jpg">
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- Three.js (escena 3D) -->
   <script type="importmap">
   {
     "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
     }
   }
   </script>
@@ -76,7 +76,7 @@
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <!-- Escena 3D: un giroscopio que acompaña todo el recorrido -->
+  <!-- Escena 3D: una red de flujos que acompaña todo el recorrido -->
   <canvas class="scene" id="scene" aria-hidden="true"></canvas>
 
   <!-- ============================================================
@@ -137,9 +137,10 @@
           </h1>
 
           <p class="hero-sub hero-anim" style="--d: 4">
-            Soy Diego Urfeig, economista y data scientist. Doy charlas y workshops donde tu equipo
-            ve, con casos concretos, qué parte del trabajo pasa a un agente y qué queda en manos
-            de las personas.
+            Soy Diego Urfeig, economista y data scientist. Fui Director Ejecutivo de la Cámara
+            Argentina de Comercio Electrónico y fundé dos empresas. Doy charlas y workshops donde
+            tu equipo ve, con casos concretos, qué parte del trabajo pasa a un agente y qué queda
+            en manos de las personas.
           </p>
 
           <div class="hero-ctas hero-anim" style="--d: 5">
@@ -155,9 +156,9 @@
           </div>
 
           <ul class="hero-facts hero-anim" style="--d: 6">
+            <li><strong>8+ años</strong><span>Director Ejecutivo de CACE</span></li>
+            <li><strong>2</strong><span>empresas fundadas</span></li>
             <li><strong>150+</strong><span>charlas dadas</span></li>
-            <li><strong>20+</strong><span>años de docencia</span></li>
-            <li><strong>Hot Sale y CyberMonday</strong><span>los creé en Argentina</span></li>
           </ul>
         </div>
 
@@ -165,20 +166,16 @@
           <div class="stage-tilt tilt" data-tilt="6">
             <div class="stage-frame">
               <div class="stage-screen">
-                <div class="stage-player" aria-hidden="true">
-                  <div id="ytPlayer" data-video="rYpVf7s35n0" data-start="1550" data-end="1606"></div>
-                </div>
-                <div class="stage-cover" aria-hidden="true">
-                  <span class="stage-bars"><i></i><i></i><i></i><i></i><i></i></span>
-                </div>
+                <video class="stage-video" id="stageVideo" autoplay muted loop playsinline preload="auto"
+                  poster="assets/video/hero-ego.jpg" aria-hidden="true">
+                  <source src="assets/video/hero-ego.mp4" type="video/mp4">
+                </video>
               </div>
             </div>
           </div>
           <figcaption class="stage-cap">
             <span class="rec" aria-hidden="true"></span>
-            <span>En el panel de IA de la Convención Anual CAMARCO 2026</span>
-            <a href="https://www.youtube.com/watch?v=rYpVf7s35n0&amp;t=1512s" target="_blank"
-              rel="noopener noreferrer">Ver en YouTube</a>
+            <span>En el escenario del eCommerce GO Córdoba 2026, de CACE</span>
           </figcaption>
         </figure>
       </div>
@@ -252,8 +249,8 @@
             </div>
           </div>
 
-          <p class="roles-cta">¿Querés ver este cambio con los procesos de tu equipo?
-            <a href="#contacto" class="link-arrow">Armemos la charla</a></p>
+          <p class="roles-cta">¿Querés saber qué procesos de tu empresa pueden cambiar así?
+            <a href="#diagnostico" class="link-arrow">Pedí el diagnóstico gratuito</a></p>
         </div>
       </div>
     </section>
@@ -451,10 +448,34 @@
             </div>
           </article>
 
+          <article class="talk talk--closing">
+            <h3>
+              <button class="talk-head" aria-expanded="false" aria-controls="talk-7" id="talk-7-btn">
+                <span class="talk-n">07</span>
+                <span class="talk-title">Cómo empezar a transformar tu empresa en dos meses</span>
+                <span class="talk-tag">Plan de arranque</span>
+                <span class="talk-plus" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="talk-body" id="talk-7" role="region" aria-labelledby="talk-7-btn">
+              <div class="talk-body-inner">
+                <p>La charla de cierre, para salir con un plan. Ocho semanas contadas una por una:
+                  qué proceso elegir primero, cómo armar el primer agente, cómo medir si funciona
+                  y cómo sumar al equipo sin que lo viva como una amenaza.</p>
+                <dl>
+                  <div><dt>Te llevás</dt><dd>El plan de las ocho semanas y el primer paso para el lunes</dd></div>
+                  <div><dt>Para quién</dt><dd>Dueños, gerentes generales y equipos directivos</dd></div>
+                  <div><dt>Duración</dt><dd>60 a 90 min</dd></div>
+                </dl>
+                <a href="#contacto" class="link-arrow" data-talk="Cómo empezar a transformar tu empresa en dos meses">Reservar esta charla</a>
+              </div>
+            </div>
+          </article>
+
         </div>
 
-        <p class="talks-note reveal">¿Tenés otro proceso en mente? Lo armamos a medida.
-          <a href="#contacto" class="link-arrow">Contame cuál</a></p>
+        <p class="talks-note reveal">¿No sabés por dónde empezar? Pedí el diagnóstico gratuito.
+          <a href="#diagnostico" class="link-arrow">Hacer el diagnóstico</a></p>
       </div>
     </section>
 
@@ -584,7 +605,7 @@
         <div class="about">
           <div class="about-media tilt reveal" data-tilt="5">
             <img src="assets/img/diego-urfeig.jpg" width="900" height="900" loading="lazy"
-              alt="Diego Urfeig, speaker de datos e inteligencia artificial">
+              alt="Diego Urfeig, speaker de inteligencia artificial, agentes y datos">
           </div>
 
           <div class="about-copy">
@@ -595,10 +616,11 @@
               <p>Soy <strong>AI Transformation Director en Ukelele</strong>, donde lidero la agenda
                 de transformación con IA en LATAM y acompaño a empresas a pasar de usar IA a
                 obtener resultados con ella.</p>
-              <p>Antes fundé <strong>Incremental</strong>, una consultora de CRO y experimentación
-                que adquirió Ukelele. Y durante más de ocho años fui Director Ejecutivo de CACE,
-                la Cámara Argentina de Comercio Electrónico, donde creé <strong>Hot Sale</strong>
-                y <strong>CyberMonday</strong> en Argentina.</p>
+              <p>Durante más de ocho años fui <strong>Director Ejecutivo de CACE</strong>, la
+                Cámara Argentina de Comercio Electrónico, y hoy dirijo su Comisión de Data. Desde
+                ahí lancé Hot Sale y CyberMonday en el país.</p>
+              <p>Fundé <strong>dos empresas</strong>. Una de ellas es Incremental, una consultora
+                de CRO y experimentación que adquirió Ukelele.</p>
               <p>Trabajo con una premisa: la IA no transforma una organización por sí sola. La
                 transformación ocurre cuando las personas la entienden, confían en ella y la
                 hacen propia. Por eso combino siempre lo técnico con lo humano.</p>
@@ -611,6 +633,7 @@
             </ul>
 
             <dl class="about-facts reveal">
+              <div><dt>CACE</dt><dd>Ex Director Ejecutivo (más de 8 años). Hoy, Director de la Comisión de Data</dd></div>
               <div><dt>Formación</dt><dd>Economista (UBA, con honores), máster (UNGS) y data scientist (Acámica)</dd></div>
               <div><dt>Docencia</dt><dd>Profesor de posgrado en estrategia digital y datos</dd></div>
             </dl>
@@ -626,13 +649,123 @@
     </section>
 
     <!-- ============================================================
+         DIAGNÓSTICO GRATUITO
+    ============================================================ -->
+    <section class="section" id="diagnostico">
+      <div class="container">
+        <div class="diag">
+          <div class="diag-copy">
+            <div class="sec-rule reveal"><span>Diagnóstico gratuito</span><i></i><span>07</span></div>
+            <h2 class="reveal">¿Dónde están los <em>dolores de cabeza</em> de tu empresa?</h2>
+            <p class="reveal">Cinco preguntas, dos minutos. Con tus respuestas, un agente arma el
+              diagnóstico: por qué proceso conviene empezar y qué parte puede hacer un agente. Yo
+              lo reviso antes de mandártelo.</p>
+            <ul class="diag-points reveal">
+              <li><i class="p-a"></i>El agente lo arma</li>
+              <li><i class="p-h"></i>Una persona lo revisa</li>
+              <li><i class="p-x"></i>Te llega por mail, gratis</li>
+            </ul>
+          </div>
+
+          <form class="diag-form reveal" id="diagForm" novalidate>
+            <div class="diag-progress" aria-hidden="true"><i id="diagBar"></i></div>
+            <p class="diag-step-n" id="diagStepN" aria-live="polite">Pregunta 1 de 5</p>
+
+            <fieldset class="diag-step is-on" data-q="Área con más dolor">
+              <legend>¿En qué área está el mayor dolor de cabeza?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="area" value="Atención al cliente"><span>Atención al cliente</span></label>
+                <label class="chip"><input type="radio" name="area" value="Marketing y ventas"><span>Marketing y ventas</span></label>
+                <label class="chip"><input type="radio" name="area" value="Administración y finanzas"><span>Administración y finanzas</span></label>
+                <label class="chip"><input type="radio" name="area" value="Operaciones y logística"><span>Operaciones y logística</span></label>
+                <label class="chip"><input type="radio" name="area" value="Datos y reportes"><span>Datos y reportes</span></label>
+                <label class="chip"><input type="radio" name="area" value="Personas y selección"><span>Personas y selección</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-q="Qué pesa más">
+              <legend>¿Qué es lo que más pesa hoy ahí?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="dolor" value="Tareas repetitivas que comen horas"><span>Tareas repetitivas que comen horas</span></label>
+                <label class="chip"><input type="radio" name="dolor" value="Respuestas lentas a clientes"><span>Respuestas lentas a clientes</span></label>
+                <label class="chip"><input type="radio" name="dolor" value="Errores por carga manual"><span>Errores por carga manual</span></label>
+                <label class="chip"><input type="radio" name="dolor" value="No sabemos qué números mirar"><span>No sabemos qué números mirar</span></label>
+                <label class="chip"><input type="radio" name="dolor" value="Todo depende de una sola persona"><span>Todo depende de una sola persona</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-q="Tamaño del equipo">
+              <legend>¿Cuánta gente trabaja en esa área?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="equipo" value="1 a 5"><span>1 a 5</span></label>
+                <label class="chip"><input type="radio" name="equipo" value="6 a 20"><span>6 a 20</span></label>
+                <label class="chip"><input type="radio" name="equipo" value="21 a 50"><span>21 a 50</span></label>
+                <label class="chip"><input type="radio" name="equipo" value="Más de 50"><span>Más de 50</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-q="Uso actual de IA">
+              <legend>¿Cómo usan IA hoy?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="ia" value="Todavía no la usamos"><span>Todavía no la usamos</span></label>
+                <label class="chip"><input type="radio" name="ia" value="Cada uno por su cuenta"><span>Cada uno por su cuenta</span></label>
+                <label class="chip"><input type="radio" name="ia" value="Algunas herramientas de equipo"><span>Algunas herramientas de equipo</span></label>
+                <label class="chip"><input type="radio" name="ia" value="Ya tenemos agentes funcionando"><span>Ya tenemos agentes funcionando</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="diag-step" data-q="Contacto">
+              <legend>¿A quién le mando el diagnóstico?</legend>
+              <div class="diag-fields">
+                <div class="field">
+                  <label for="dNombre">Nombre</label>
+                  <input type="text" id="dNombre" name="nombre" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="dEmpresa">Empresa</label>
+                  <input type="text" id="dEmpresa" name="empresa" autocomplete="organization" required>
+                </div>
+                <div class="field field--full">
+                  <label for="dEmail">Email</label>
+                  <input type="email" id="dEmail" name="email" autocomplete="email" placeholder="tu@empresa.com" required>
+                </div>
+                <div class="field field--full">
+                  <label for="dProceso">El proceso que más te duele (opcional)</label>
+                  <textarea id="dProceso" name="proceso" rows="3"
+                    placeholder="Por ejemplo: tardamos dos días en responder cada devolución."></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="diag-nav">
+              <button type="button" class="btn btn-ghost" id="diagBack" hidden>Atrás</button>
+              <button type="submit" class="btn btn-primary btn-lg" id="diagSend" hidden>
+                <span class="btn-text">Pedir mi diagnóstico</span>
+                <span class="btn-loading" hidden>Enviando...</span>
+              </button>
+            </div>
+            <div class="form-msg form-error" id="diagError" hidden role="alert">
+              No se pudo enviar. Probá de nuevo o escribime por WhatsApp.
+            </div>
+
+            <div class="diag-done" id="diagDone" hidden role="status">
+              <span class="diag-check" aria-hidden="true"></span>
+              <h3>Recibido.</h3>
+              <p>Ya tengo tus respuestas. Te mando el diagnóstico al mail que dejaste.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          CONTACTO
     ============================================================ -->
     <section class="section section--contact" id="contacto">
       <div class="container">
         <div class="contact">
           <div class="contact-copy">
-            <div class="sec-rule reveal"><span>Contacto</span><i></i><span>07</span></div>
+            <div class="sec-rule reveal"><span>Contacto</span><i></i><span>08</span></div>
             <h2 class="reveal">Contame qué evento <em>tenés en mente.</em></h2>
             <p class="reveal">Tu empresa, tu evento o el proceso que querés resolver. Respondo en menos
               de 24 horas.</p>
@@ -720,6 +853,7 @@
         <a href="#servicios">Formatos</a>
         <a href="#contenido">IA en 1 minuto</a>
         <a href="#sobre-diego">Sobre Diego</a>
+        <a href="#diagnostico">Diagnóstico gratuito</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <nav class="footer-links" aria-label="Redes sociales">
@@ -855,7 +989,7 @@
         "name": "¿Qué temas cubre Diego Urfeig en sus charlas de inteligencia artificial?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Diego Urfeig da charlas concretas sobre cómo implementar IA: cómo armar un agente que responda las devoluciones, cómo pasar de armar reportes a decidir con un agente de pauta, cómo preguntarle a los datos en castellano, cómo evaluar si un agente trabajó bien (evals y jueces), qué pedirle a la IA y cómo rediseñar un puesto cuando una parte la hace un agente."
+          "text": "Diego Urfeig da charlas concretas sobre cómo implementar IA: cómo armar un agente que responda las devoluciones, cómo pasar de armar reportes a decidir con un agente de pauta, cómo preguntarle a los datos en castellano, cómo evaluar si un agente trabajó bien (evals y jueces), qué pedirle a la IA, cómo rediseñar un puesto cuando una parte la hace un agente y cómo empezar a transformar una empresa en dos meses. También ofrece un diagnóstico gratuito para detectar por qué proceso conviene empezar."
         }
       },
       {
