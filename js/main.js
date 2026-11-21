@@ -762,6 +762,24 @@
     });
   });
 
+  // Los dolores llevan a su charla y la dejan abierta
+  slice(document.querySelectorAll('[data-open-talk]')).forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.getElementById('talk-' + link.dataset.openTalk);
+      if (!target) { return; }
+      var talk = target.closest('.talk');
+      e.preventDefault();
+      track('pain_select', { pain: link.querySelector('.pain-text').textContent.trim(), talk: link.dataset.openTalk });
+      var wasOpen = talk.classList.contains('is-open');
+      if (!wasOpen) { talk.querySelector('.talk-head').click(); }
+      // espera a que se cierre la charla que estaba abierta, para no pasarse de largo
+      setTimeout(function () {
+        talk.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        talk.querySelector('.talk-head').focus({ preventScroll: true });
+      }, wasOpen ? 0 : 560);
+    });
+  });
+
   // "Reservar esta charla" deja el tema elegido en el formulario
   slice(document.querySelectorAll('[data-talk]')).forEach(function (link) {
     link.addEventListener('click', function () {

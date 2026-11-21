@@ -34,6 +34,23 @@ Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: la tran
 - Instagram: https://www.instagram.com/diegourfeig/
 - TikTok: https://www.tiktok.com/@durfeig
 
+## Problemas que resuelve
+
+Los problemas que más escucha en las empresas y la charla que responde a cada uno:
+
+- "Contestamos devoluciones y consultas a mano, una por una." → Charla 01: Un agente que responda las devoluciones.
+- "Los reportes nos comen la semana y nadie decide con ellos." → Charla 02: De armar reportes a decidir.
+- "Tenemos datos, pero cada pregunta tarda días en contestarse." → Charla 03: Preguntale a tus datos.
+- "Cada uno usa la IA por su cuenta y no se nota en los resultados." → Charla 07: Transformar tu empresa en dos meses.
+- "El equipo no termina de sumarse: la ve como una amenaza." → Charla 06: Rediseñar un puesto con agentes.
+- "Probamos un agente y no confiamos en lo que entrega." → Charla 04: Evals y jueces.
+- "No sabemos por dónde empezar." → Diagnóstico gratuito: Cinco preguntas, sin costo.
+
+## Cómo trabaja
+
+- **El equipo no va a depender de él.** Trabaja para que la gente de adentro entienda lo que la IA puede hacer, la sume a su trabajo y proponga sus propios proyectos. Cuando eso pasa, el cambio sigue solo y se contagia de un área a otra.
+- **Todo lo que muestra, lo usa.** Los videos de IA en 1 minuto los edita un agente y en su casa otro maneja el aire, las luces y la tele. Los casos de las charlas salen de lo que prueba todos los días.
+
 ## Charlas
 
 Cada charla dura entre 45 y 90 minutos, es presencial o remota y se adapta a la industria y a los procesos del equipo.
