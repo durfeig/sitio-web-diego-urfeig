@@ -11,6 +11,17 @@
   var slice = function (list) { return Array.prototype.slice.call(list); };
 
   /* ----------------------------------------------------------
+     MEDICIÓN: cada interacción clave va al dataLayer, para que
+     GA4 (vía Tag Manager) y Probeta la puedan usar como métrica.
+  ---------------------------------------------------------- */
+  window.dataLayer = window.dataLayer || [];
+  function track(event, params) {
+    var data = { event: event };
+    for (var k in (params || {})) { data[k] = params[k]; }
+    window.dataLayer.push(data);
+  }
+
+  /* ----------------------------------------------------------
      HEADER: fondo al bajar y barra de progreso
   ---------------------------------------------------------- */
   var progressBar = document.getElementById('progressBar');
@@ -323,12 +334,16 @@
       b.setAttribute('role', 'tab');
       b.setAttribute('aria-selected', String(idx === 0));
       b.textContent = r.tab;
-      b.addEventListener('click', function () { touched = true; setRole(idx); });
+      b.addEventListener('click', function () { touched = true; setRole(idx); track('role_select', { role: r.tab }); });
       tabsEl.appendChild(b);
     });
 
     modeBtns.forEach(function (b) {
-      b.addEventListener('click', function () { touched = true; setMode(b.dataset.mode); });
+      b.addEventListener('click', function () {
+        touched = true;
+        setMode(b.dataset.mode);
+        track('flow_mode', { mode: b.dataset.mode === 'ag' ? 'con_agente' : 'hoy', role: role.tab });
+      });
     });
 
     function lane(i) { return mode === 'hoy' ? 'h' : role.steps[i].who; }
@@ -715,7 +730,11 @@
         t.classList.remove('is-open');
         t.querySelector('.talk-head').setAttribute('aria-expanded', 'false');
       });
-      if (willOpen) { talk.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
+      if (willOpen) {
+        talk.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        track('talk_open', { talk: talk.querySelector('.talk-title').textContent.trim() });
+      }
     });
   });
 
@@ -724,6 +743,7 @@
     link.addEventListener('click', function () {
       var tipo = document.getElementById('tipo');
       var mensaje = document.getElementById('mensaje');
+      track('talk_reserve', { talk: link.dataset.talk });
       if (tipo) { tipo.value = 'charla'; }
       if (mensaje && !mensaje.value.trim()) { mensaje.value = 'Me interesa la charla «' + link.dataset.talk + '». '; }
     });
@@ -746,7 +766,13 @@
       var p = video.play();
       if (p && p.catch) { p.catch(function () {}); }
     });
-    video.addEventListener('play', function () { ep.classList.add('is-playing'); });
+    video.addEventListener('play', function () {
+      ep.classList.add('is-playing');
+      if (!video.dataset.tracked) {
+        video.dataset.tracked = '1';
+        track('video_play', { video_title: ep.querySelector('h3').textContent.trim() });
+      }
+    });
     video.addEventListener('ended', function () {
       ep.classList.remove('is-playing');
       video.controls = false;
@@ -800,7 +826,7 @@
         setLoading(false);
         formSuccess.hidden = !ok;
         formError.hidden = ok;
-        if (ok) { form.reset(); }
+        if (ok) { track('generate_lead', { lead_type: 'contacto', lead_topic: tipoLabel }); form.reset(); }
       }
       setLoading(true);
       formSuccess.hidden = true;
@@ -862,6 +888,7 @@
     diagForm.addEventListener('change', function (e) {
       if (e.target.type !== 'radio') { return; }
       var from = dIndex;
+      track(from === 0 ? 'diagnostic_start' : 'diagnostic_step', { step: from + 1, question: e.target.name, answer: e.target.value });
       setTimeout(function () { if (dIndex === from) { showStep(from + 1, true); } }, reduceMotion ? 0 : 320);
     });
     dBack.addEventListener('click', function () { showStep(dIndex - 1, true); });
@@ -913,6 +940,7 @@
         .then(function (res) { return res.json(); })
         .then(function (data) {
           if (!(data.success === 'true' || data.success === true)) { throw new Error('envío rechazado'); }
+          track('generate_lead', { lead_type: 'diagnostico', lead_topic: answers.area });
           diagForm.classList.add('is-done');
           dDone.hidden = false;
           dDone.focus && dDone.setAttribute('tabindex', '-1');
@@ -929,6 +957,38 @@
       }
     });
     showStep(0, false);
+  }
+
+  /* ----------------------------------------------------------
+     MEDICIÓN: llamados a la acción, preguntas y secciones vistas
+  ---------------------------------------------------------- */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-track], a.btn, a.link-arrow, .socials a, .footer-links a[target="_blank"]');
+    if (!el) { return; }
+    var section = el.closest('section[id], header, footer');
+    track('cta_click', {
+      cta_id: el.dataset.track || '',
+      cta_text: (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+      cta_location: section ? (section.id || section.tagName.toLowerCase()) : '',
+      link_url: el.getAttribute('href') || ''
+    });
+  });
+  slice(document.querySelectorAll('.faq-item')).forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (item.open) { track('faq_open', { question: item.querySelector('h3').textContent.trim() }); }
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    var sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !seen[entry.target.id]) {
+          seen[entry.target.id] = true;
+          track('section_view', { section: entry.target.id });
+        }
+      });
+    }, { threshold: 0.3 });
+    slice(document.querySelectorAll('main section[id]')).forEach(function (sec) { sectionObserver.observe(sec); });
   }
 
   /* ----------------------------------------------------------
