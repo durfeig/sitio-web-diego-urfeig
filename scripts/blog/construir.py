@@ -61,6 +61,26 @@ AUTOR_ID = SITIO + '/#diego-urfeig'
 VERSION = '20261124'
 E = html.escape
 
+# Estilos de las tablas del blog. Van dentro de las páginas que tienen tablas, así esas
+# páginas no dependen de que el titular tenga una versión nueva de css/styles.css.
+TABLA_CSS = '''/* Tablas del blog: en pantallas angostas se desplazan dentro de su caja, no la página */
+.post-table { margin-block: 1.8em !important; overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--panel); }
+.post-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.95rem; line-height: 1.5; }
+.post-table th { text-align: left; padding: 14px 16px; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cyan); border-bottom: 1px solid var(--line-2); background: rgba(255, 255, 255, 0.03); }
+.post-table td { padding: 12px 16px; vertical-align: top; color: var(--ink-2); border-bottom: 1px solid var(--line); }
+.post-table tr:last-child td { border-bottom: 0; }
+.post-table td:first-child { color: var(--ink); font-weight: 600; }
+@media (max-width: 600px) {
+  /* en el teléfono, cada fila de la tabla es una tarjeta con sus etiquetas */
+  .post-table { overflow: visible; background: none; border: 0; border-radius: 0; }
+  .post-table table, .post-table tbody, .post-table tr, .post-table td { display: block; min-width: 0; width: 100%; }
+  .post-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .post-table tr { margin-bottom: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+  .post-table td { padding: 4px 0; border: 0; }
+  .post-table td:first-child { font-size: 1.02rem; padding-bottom: 6px; }
+  .post-table td:not(:first-child)::before { content: attr(data-label); display: block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--cyan); margin-top: 6px; }
+}'''
+
 CHARLAS = {
     '1': 'La transformación con IA es primero cultural',
     '2': 'De pilotos a resultados: por qué la IA no llega al negocio',
@@ -134,6 +154,17 @@ def markdown(texto):
         elif tipo in ('ul', 'ol'):
             items = ''.join(f'<li>{en_linea(i)}</li>' for i in bloque)
             salida.append(f'<{tipo}>{items}</{tipo}>')
+        elif tipo == 'table':
+            filas = [[c.strip() for c in f.strip().strip('|').split('|')] for f in bloque
+                     if not re.fullmatch(r'\|?[\s:|-]+\|?', f.strip())]
+            if filas:
+                cab = ''.join(f'<th scope="col">{en_linea(c)}</th>' for c in filas[0])
+                etiquetas = [E(re.sub(r'[*_`]', '', c)) for c in filas[0]]
+                cuerpo = ''.join('<tr>' + ''.join(
+                    f'<td data-label="{etiquetas[i] if i < len(etiquetas) else ""}">{en_linea(c)}</td>'
+                    for i, c in enumerate(f)) + '</tr>' for f in filas[1:])
+                salida.append(f'<div class="post-table"><table><thead><tr>{cab}</tr></thead>'
+                              f'<tbody>{cuerpo}</tbody></table></div>')
         elif tipo == 'quote':
             lineas = [l for l in bloque]
             autor = ''
@@ -152,6 +183,10 @@ def markdown(texto):
             cerrar(); salida.append(f'<h3>{en_linea(l[4:])}</h3>'); continue
         if l.startswith('## '):
             cerrar(); salida.append(f'<h2>{en_linea(l[3:])}</h2>'); continue
+        if l.startswith('|'):
+            if tipo != 'table':
+                cerrar(); tipo = 'table'
+            bloque.append(l); continue
         if l.startswith('> '):
             if tipo != 'quote':
                 cerrar(); tipo = 'quote'
@@ -181,7 +216,7 @@ def fecha_larga(iso):
 
 
 # ------------------------------------------------------------------ plantillas
-def cabeza(titulo, descripcion, canonical, og_tipo, imagen, extra_ld, borrador):
+def cabeza(titulo, descripcion, canonical, og_tipo, imagen, extra_ld, borrador, estilos=''):
     robots = 'noindex, nofollow' if borrador else 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     return f'''<!DOCTYPE html>
 <html lang="es">
@@ -223,7 +258,10 @@ def cabeza(titulo, descripcion, canonical, og_tipo, imagen, extra_ld, borrador):
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css?v={VERSION}">
+  <link rel="stylesheet" href="/css/styles.css?v={VERSION}">{f'''
+  <style>
+{estilos}
+  </style>''' if estilos else ''}
   <script type="application/ld+json">
 {json.dumps(extra_ld, ensure_ascii=False, indent=2)}
   </script>
@@ -417,7 +455,9 @@ def pagina_articulo(a, otros, borrador):
         aviso = '\n        <p class="post-draft">Borrador para revisar: todavía no está publicado.</p>'
     elif a.get('revision'):
         aviso = '\n        <p class="post-draft">Versión revisada para aprobar: en el sitio sigue la anterior.</p>'
-    return (cabeza(f'{a["titulo"]} | Diego Urfeig', a['descripcion'], url, 'article', imagen, ld, borrador)
+    cuerpo_html = markdown(a["principal"])
+    estilos = TABLA_CSS if 'class="post-table"' in cuerpo_html else ''
+    return (cabeza(f'{a["titulo"]} | Diego Urfeig', a['descripcion'], url, 'article', imagen, ld, borrador, estilos)
             + MENU.format(activo=' active') + f'''
   <main id="main">
     <article class="post">
@@ -428,7 +468,7 @@ def pagina_articulo(a, otros, borrador):
         <p class="post-meta">Por <a href="/#sobre-diego">Diego Urfeig</a> · <time datetime="{a["fecha"]}">{fecha_larga(a["fecha"])}</time>{f' · Actualizado el <time datetime="{a["actualizado"]}">{fecha_larga(a["actualizado"])}</time>' if a["actualizado"] != a["fecha"] else ''}</p>
         <div class="post-layout{' post-layout--video' if video else ''}">{video}
           <div class="post-body">
-{markdown(a["principal"])}
+{cuerpo_html}
           </div>
         </div>{fuentes}{faq}{cierre}
       </div>
