@@ -792,43 +792,101 @@
   });
 
   /* ----------------------------------------------------------
-     EPISODIOS: reproduce uno por vez, con sonido
+     EPISODIOS DE «IA EN 1 MINUTO»
+     La lista la arma una rutina semanal (scripts/episodios) y queda en
+     assets/episodios.json: el último que salió y los más vistos. Si el
+     archivo no carga, quedan las tarjetas que vienen en el HTML.
   ---------------------------------------------------------- */
-  var eps = slice(document.querySelectorAll('.ep'));
-  eps.forEach(function (ep) {
-    var video = ep.querySelector('video');
-    var playBtn = ep.querySelector('.ep-play');
-    if (!video || !playBtn) { return; }
-    playBtn.addEventListener('click', function () {
-      eps.forEach(function (other) {
-        var v = other.querySelector('video');
-        if (v && v !== video) { v.pause(); }
+  var epsGrid = document.getElementById('eps');
+  var epObserver = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target.querySelector('video');
+      if (!entry.isIntersecting && v && !v.paused) { v.pause(); }
+    });
+  }, { threshold: 0.1 }) : null;
+
+  function bindEpisodes() {
+    var eps = slice(document.querySelectorAll('.ep'));
+    eps.forEach(function (ep) {
+      var video = ep.querySelector('video');
+      var playBtn = ep.querySelector('.ep-play');
+      if (!video || !playBtn || ep.dataset.bound) { return; }
+      ep.dataset.bound = '1';
+      playBtn.addEventListener('click', function () {
+        slice(document.querySelectorAll('.ep video')).forEach(function (v) { if (v !== video) { v.pause(); } });
+        video.controls = true;
+        var p = video.play();
+        if (p && p.catch) { p.catch(function () {}); }
       });
-      video.controls = true;
-      var p = video.play();
-      if (p && p.catch) { p.catch(function () {}); }
-    });
-    video.addEventListener('play', function () {
-      ep.classList.add('is-playing');
-      if (!video.dataset.tracked) {
-        video.dataset.tracked = '1';
-        track('video_play', { video_title: ep.querySelector('h3').textContent.trim() });
-      }
-    });
-    video.addEventListener('ended', function () {
-      ep.classList.remove('is-playing');
-      video.controls = false;
-      video.load();
-    });
-  });
-  if ('IntersectionObserver' in window) {
-    var epObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var v = entry.target.querySelector('video');
-        if (!entry.isIntersecting && v && !v.paused) { v.pause(); }
+      video.addEventListener('play', function () {
+        ep.classList.add('is-playing');
+        if (!video.dataset.tracked) {
+          video.dataset.tracked = '1';
+          track('video_play', { video_title: ep.querySelector('h3').textContent.trim() });
+        }
       });
-    }, { threshold: 0.1 });
-    eps.forEach(function (ep) { epObserver.observe(ep); });
+      video.addEventListener('ended', function () {
+        ep.classList.remove('is-playing');
+        video.controls = false;
+        video.load();
+      });
+      if (epObserver) { epObserver.observe(ep); }
+    });
+  }
+
+  function episodeCard(e) {
+    var art = document.createElement('article');
+    art.className = 'ep reveal visible';
+    var meta = ['#' + (e.numero < 10 ? '0' + e.numero : e.numero), e.duracion];
+    if (e.reproducciones_texto) { meta.push(e.reproducciones_texto); }
+    var frame = document.createElement('div');
+    frame.className = 'ep-frame';
+    var video = document.createElement('video');
+    video.preload = 'none';
+    video.setAttribute('playsinline', '');
+    video.poster = e.portada;
+    video.src = e.video;
+    frame.appendChild(video);
+    if (e.nuevo) {
+      var badge = document.createElement('span');
+      badge.className = 'ep-badge';
+      badge.textContent = 'Nuevo';
+      frame.appendChild(badge);
+    }
+    var btn = document.createElement('button');
+    btn.className = 'ep-play';
+    btn.setAttribute('aria-label', 'Reproducir el episodio ' + e.numero + ': ' + e.titulo);
+    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>';
+    frame.appendChild(btn);
+    var n = document.createElement('p');
+    n.className = 'ep-n';
+    n.textContent = meta.join(' · ');
+    var h = document.createElement('h3');
+    h.textContent = e.titulo;
+    var d = document.createElement('p');
+    d.className = 'ep-desc';
+    d.textContent = e.descripcion;
+    art.appendChild(frame); art.appendChild(n); art.appendChild(h); art.appendChild(d);
+    return art;
+  }
+
+  bindEpisodes();
+  if (epsGrid && window.fetch) {
+    fetch('assets/episodios.json', { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.json(); })
+      .then(function (data) {
+        var list = (data && data.episodios) || [];
+        if (!list.length) { return; }
+        var actual = slice(epsGrid.querySelectorAll('.ep-play')).map(function (b) { return b.getAttribute('aria-label'); }).join('|');
+        var nueva = list.map(function (e) { return 'Reproducir el episodio ' + e.numero + ': ' + e.titulo; }).join('|');
+        if (actual === nueva) { return; } // el HTML ya trae esta lista
+        var playing = slice(epsGrid.querySelectorAll('video')).some(function (v) { return !v.paused; });
+        if (playing) { return; }
+        epsGrid.innerHTML = '';
+        list.forEach(function (e) { epsGrid.appendChild(episodeCard(e)); });
+        bindEpisodes();
+      })
+      .catch(function () {});
   }
 
   /* ----------------------------------------------------------

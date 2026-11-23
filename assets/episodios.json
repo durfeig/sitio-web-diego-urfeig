@@ -1,0 +1,44 @@
+{
+  "actualizado": "2026-11-23",
+  "episodios": [
+    {
+      "numero": 37,
+      "titulo": "Mi casa y mi agente",
+      "descripcion": "Le pedí a Claude que revisara el Wi-Fi de casa.",
+      "duracion": "1:10",
+      "video": "assets/video/ep37.mp4",
+      "portada": "assets/video/ep37.jpg",
+      "url": "https://www.instagram.com/reel/Df6-t07Ah4Z/",
+      "reproducciones": 529,
+      "reproducciones_texto": "",
+      "nuevo": true,
+      "publicado": "2026-11-19"
+    },
+    {
+      "numero": 26,
+      "titulo": "ESP32 y la Fábrica",
+      "descripcion": "Esto es la parte freak de algo que muy pronto vamos a tener en el teléfono.",
+      "duracion": "1:11",
+      "video": "assets/video/ep26.mp4",
+      "portada": "assets/video/ep26.jpg",
+      "url": "https://www.instagram.com/reel/DfR1vF8DRHQ/",
+      "reproducciones": 8292,
+      "reproducciones_texto": "8,3 mil reproducciones",
+      "nuevo": false,
+      "publicado": "2026-11-03"
+    },
+    {
+      "numero": 4,
+      "titulo": "IA personal",
+      "descripcion": "En seis semanas, Meta, OpenAI y Anthropic lanzaron lo mismo: una IA personal que no espera a que le preguntes.",
+      "duracion": "1:05",
+      "video": "assets/video/ep04.mp4",
+      "portada": "assets/video/ep04.jpg",
+      "url": "https://www.instagram.com/reel/De1tYgkCdAw/",
+      "reproducciones": 4039,
+      "reproducciones_texto": "4 mil reproducciones",
+      "nuevo": false,
+      "publicado": "2026-10-23"
+    }
+  ]
+}

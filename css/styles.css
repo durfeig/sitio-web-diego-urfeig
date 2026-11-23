@@ -1196,6 +1196,22 @@ main, .footer { position: relative; z-index: 1; }
   place-items: center;
   transition: transform 0.3s var(--spring), opacity 0.3s;
 }
+.ep-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--grad);
+  color: #06070B;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px -6px rgba(255, 62, 165, 0.7);
+}
+.ep.is-playing .ep-badge { opacity: 0; transition: opacity 0.3s; }
 .ep-play svg { margin-left: 3px; }
 .ep:hover .ep-play { transform: scale(1.12); }
 .ep.is-playing .ep-play { opacity: 0; pointer-events: none; transform: scale(0.8); }
