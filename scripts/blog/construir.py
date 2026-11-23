@@ -37,6 +37,11 @@ Deja en <carpeta_de_salida>:
     blog/index.html, blog/<slug>/index.html, blog/feed.xml,
     sitemap.xml, llms.txt y llms-full.txt (los del sitio, con la sección Blog al día).
 
+Un artículo ya publicado se corrige dejando la versión nueva en
+<carpeta_de_articulos>/_revisiones/ con el mismo nombre de archivo. Con --borradores se
+arma la versión revisada (con un aviso); sin --borradores sigue la publicada. Cuando
+Diego la aprueba, la revisión reemplaza al archivo original.
+
 Los borradores solo se arman con --borradores, que es para el subdominio de prueba:
 ahí entran también al sitemap, al feed y a llms, para revisar cómo quedaría todo. Sin
 --borradores (producción) quedan afuera de todo. Lee sitemap.xml, llms.txt y llms-full.txt base
@@ -407,7 +412,11 @@ def pagina_articulo(a, otros, borrador):
         </div>
       </div>
     </section>'''
-    aviso = '\n        <p class="post-draft">Borrador para revisar: todavía no está publicado.</p>' if a['estado'] == 'borrador' else ''
+    aviso = ''
+    if a['estado'] == 'borrador':
+        aviso = '\n        <p class="post-draft">Borrador para revisar: todavía no está publicado.</p>'
+    elif a.get('revision'):
+        aviso = '\n        <p class="post-draft">Versión revisada para aprobar: en el sitio sigue la anterior.</p>'
     return (cabeza(f'{a["titulo"]} | Diego Urfeig', a['descripcion'], url, 'article', imagen, ld, borrador)
             + MENU.format(activo=' active') + f'''
   <main id="main">
@@ -562,9 +571,17 @@ def main():
         sys.exit(__doc__)
     origen, salida = args
     todos = []
+    revisiones = os.path.join(origen, '_revisiones')
     for nombre in sorted(os.listdir(origen)):
         if nombre.endswith('.md') and not nombre.startswith(('_', '.')):
-            todos.append(leer_articulo(os.path.join(origen, nombre)))
+            revision = os.path.join(revisiones, nombre)
+            if borradores and os.path.exists(revision):
+                # en prueba se ve la versión revisada; en el titular sigue la publicada
+                articulo = leer_articulo(revision)
+                articulo['revision'] = True
+            else:
+                articulo = leer_articulo(os.path.join(origen, nombre))
+            todos.append(articulo)
     slugs = [a['slug'] for a in todos]
     if len(slugs) != len(set(slugs)):
         sys.exit('Hay dos artículos con el mismo slug.')
