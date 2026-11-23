@@ -93,6 +93,10 @@ def main():
                 check=True, capture_output=True)
             preparado = True
         transcripcion = os.path.join(carpeta_ep, 'trabajo', 'transcripcion.txt')
+        # La skill de edición deja, desde fines de 2026, una ficha para el blog y la
+        # transcripción del video final. Si están, son la fuente principal.
+        ficha = os.path.join(editado, f'ep{numero:02d}_blog.md')
+        final = os.path.join(editado, f'ep{numero:02d}_transcripcion_final.txt')
         resultado['pendiente'] = {
             'numero': numero,
             'titulo_carpeta': ep['titulo'],
@@ -103,6 +107,8 @@ def main():
             'video': '/' + base + '.mp4',
             'portada': '/' + base + '.jpg',
             'video_preparado_en_salida': preparado,
+            'ficha_blog': ficha if os.path.exists(ficha) else None,
+            'transcripcion_final': final if os.path.exists(final) else None,
             'transcripcion': transcripcion if os.path.exists(transcripcion) else None,
             'textos': sorted(os.path.join(editado, f) for f in os.listdir(editado)
                              if re.fullmatch(rf'ep{numero:02d}_caption.*\.txt', f)),
