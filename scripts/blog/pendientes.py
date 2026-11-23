@@ -8,8 +8,9 @@ Uso:
 timestamp, videoPlayCount, caption con el comienzo del texto del reel).
 
 Elige como mucho UN episodio: el reel de la serie más reciente que tenga carpeta en
-Drive y todavía no tenga artículo (ni borrador). Si ya hay un borrador esperando el OK
-de Diego, no elige ninguno: el blog avanza al ritmo en que Diego revisa.
+Drive y todavía no tenga artículo (ni borrador). Si ya hay un borrador de episodio
+esperando el OK de Diego, no elige ninguno: el blog avanza al ritmo en que Diego revisa.
+Los borradores de fondo (tipo: fondo) no frenan a los episodios.
 
 Si el video del episodio no está en el sitio, lo deja listo en
 <carpeta_de_salida>/assets/video/epNN.mp4 y .jpg (mismo formato que la sección
@@ -38,7 +39,7 @@ def articulos(carpeta):
         for linea in (m.group(1).splitlines() if m else []):
             if ':' in linea:
                 k, v = linea.split(':', 1)
-                meta[k.strip()] = re.sub(r'\s+\(.*\)$', '', v.strip())
+                meta[k.strip()] = re.sub(r'\s{2,}\(.*\)$', '', v.strip())
         meta['archivo'] = nombre
         salida.append(meta)
     return salida
@@ -51,11 +52,12 @@ def main():
     with open(reels_path, encoding='utf-8') as fh:
         reels = json.load(fh)
     existentes = articulos(carpeta)
-    esperando = [a for a in existentes if a.get('estado') == 'borrador']
+    borradores = [a for a in existentes if a.get('estado') == 'borrador']
+    esperando = [a for a in borradores if a.get('tipo') != 'fondo']
     con_articulo = {int(a['episodio']) for a in existentes if a.get('episodio', '').isdigit()}
     resultado = {
-        'borradores_esperando': [{'archivo': a['archivo'], 'slug': a.get('slug'),
-                                  'codigo': a.get('codigo') or a.get('episodio')} for a in esperando],
+        'borradores_esperando': [{'archivo': a['archivo'], 'slug': a.get('slug'), 'tipo': a.get('tipo'),
+                                  'codigo': a.get('codigo') or a.get('episodio')} for a in borradores],
         'pendiente': None,
         'sin_carpeta_en_drive': [],
     }

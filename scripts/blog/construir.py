@@ -22,6 +22,9 @@ Uso:
     duracion: 1:10
     charla: 3                        (número de la charla relacionada, para el cierre)
     ---
+    (Lo que va entre paréntesis al final de una línea, separado por dos o más espacios,
+    es un comentario y se ignora. Un paréntesis pegado al texto, como en un título, se respeta.)
+
     Primer párrafo: la respuesta directa.
     ...
     ## Fuentes
@@ -77,7 +80,7 @@ def leer_articulo(ruta):
     for linea in m.group(1).splitlines():
         if ':' in linea and not linea.startswith('#'):
             k, v = linea.split(':', 1)
-            meta[k.strip()] = re.sub(r'\s+\(.*\)$', '', v.strip())
+            meta[k.strip()] = re.sub(r'\s{2,}\(.*\)$', '', v.strip())
     for clave in ('titulo', 'slug', 'descripcion', 'fecha', 'estado', 'tipo'):
         if not meta.get(clave):
             raise ValueError(f'{ruta}: falta «{clave}»')
