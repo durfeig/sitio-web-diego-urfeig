@@ -1,0 +1,135 @@
+# Diego Urfeig
+
+> Speaker y consultor de inteligencia artificial, agentes y datos para empresas de Argentina y Latinoamérica. Economista y data scientist. AI Transformation Director en Ukelele. Ex Director Ejecutivo de CACE (Cámara Argentina de Comercio Electrónico) y actual Director de su Comisión de Data.
+
+Sitio oficial: https://www.diegourfeig.com/ (en español). Idea central: la transformación con IA es primero cultural; agentes que ejecutan, personas que deciden.
+
+## Datos clave
+
+- Nombre: Diego Urfeig
+- Qué hace: charlas, keynotes, workshops y consultoría de inteligencia artificial para empresas
+- Cargo actual: AI Transformation Director en Ukelele (agencia de growth)
+- Trayectoria: Director Ejecutivo de CACE durante más de 8 años; hoy Director de la Comisión de Data de CACE; fundador de dos empresas, entre ellas Incremental (consultora de CRO y experimentación adquirida por Ukelele)
+- Formación: economista (UBA, con honores), máster (UNGS), data scientist (Acámica); profesor de posgrado en estrategia digital y datos
+- Experiencia: más de 150 charlas, más de 90 capacitaciones, más de 20 años de docencia
+- Ubicación: Buenos Aires, Argentina. Trabaja con toda Latinoamérica, presencial o remoto
+- Idioma de las charlas: español
+
+## Secciones del sitio
+
+- [Roles: cómo cambia un puesto con un agente](https://www.diegourfeig.com/#roles): seis roles, antes y después
+- [Charlas](https://www.diegourfeig.com/#charlas): siete charlas con títulos, público y duración
+- [Formatos](https://www.diegourfeig.com/#servicios): keynotes, workshops, consultoría y formación
+- [IA en 1 minuto](https://www.diegourfeig.com/#contenido): serie de videos
+- [Sobre Diego](https://www.diegourfeig.com/#sobre-diego): biografía y credenciales
+- [Preguntas frecuentes](https://www.diegourfeig.com/#preguntas)
+- [Diagnóstico gratuito](https://www.diegourfeig.com/#diagnostico): cuestionario de cinco preguntas
+- [Contacto](https://www.diegourfeig.com/#contacto): formulario y WhatsApp
+
+## Contacto
+
+- Formulario: https://www.diegourfeig.com/#contacto
+- WhatsApp: https://wa.me/541133589585
+- LinkedIn: https://www.linkedin.com/in/diegourfeig/
+- Instagram: https://www.instagram.com/diegourfeig/
+- TikTok: https://www.tiktok.com/@durfeig
+
+## Problemas que resuelve
+
+Los problemas que más escucha en empresas de todos los rubros y dónde se trabaja cada uno:
+
+- "Pagamos licencias de IA y casi nadie las usa." → Charla 01: La transformación con IA es primero cultural.
+- "El equipo la ve como una amenaza y se resiste." → Charla 05: Liderar con IA.
+- "Hicimos pilotos, pero ninguno cambió el negocio." → Charla 02: De pilotos a resultados.
+- "Ahorramos tiempo, pero no se nota en los resultados." → Charla 03: De dar tareas a dar objetivos.
+- "No sabemos cómo van a cambiar los puestos ni qué decirle al equipo." → Charla 04: Rediseñar un puesto con agentes.
+- "No confiamos en lo que entrega la IA y revisamos todo dos veces." → Charla 06: Confiar en la IA sin revisar todo.
+- "No sabemos por dónde empezar ni qué priorizar." → Diagnóstico gratuito: Cinco preguntas, sin costo.
+
+## Cómo trabaja
+
+- **El equipo no va a depender de él.** Trabaja para que la gente de adentro entienda lo que la IA puede hacer, la sume a su trabajo y proponga sus propios proyectos. Cuando eso pasa, el cambio sigue solo y se contagia de un área a otra.
+- **Todo lo que muestra, lo usa.** Los videos de IA en 1 minuto los edita un agente y en su casa otro maneja el aire, las luces y la tele. Los casos de las charlas salen de lo que prueba todos los días.
+
+## Charlas
+
+Cada charla se da presencial o remota y se adapta a la industria y a los procesos del equipo.
+
+- **La transformación con IA es primero cultural**. Las herramientas ya están; lo que separa a las empresas que avanzan es que su gente las adopte. Cómo pasar de licencias que casi nadie usa a equipos que proponen sus propios proyectos con IA, y cómo lograr que el cambio se contagie de un área a otra sin depender de un proveedor. Te llevás: Un mapa de dónde está tu organización y las palancas para mover a la gente. Para: Toda la organización. Ideal para abrir un evento. Duración: 45 a 90 min.
+- **De pilotos a resultados: por qué la IA no llega al negocio (y cómo hacer que llegue)**. El 95% de los pilotos de IA generativa no muestra impacto medible. Qué hacen distinto las pocas empresas que capturan valor: rediseñan el trabajo de punta a punta en lugar de sumar IA a lo que ya hacían. Con casos reales, como un agente que responde las devoluciones o uno que propone cambios en la pauta. Te llevás: Criterios para elegir qué proceso rediseñar primero y cómo medir si funcionó. Para: Equipos directivos y líderes de área. Duración: 45 a 75 min.
+- **Qué pedirle a la IA: de dar tareas a dar objetivos**. Hay tres niveles de uso: pedir algo y esperar, pedir con contexto, y dar el objetivo para que la IA proponga opciones. La mayoría se queda en el primero, y por eso el tiempo que ahorra no se nota en los resultados. Con el mismo pedido resuelto en los tres niveles, para que se vea la diferencia. Te llevás: Cómo pasar tu trabajo de todos los días al tercer nivel. Para: Toda la organización, sin conocimientos previos. Duración: 45 a 60 min.
+- **Cómo rediseñar un puesto cuando una parte la hace un agente**. Qué tareas pasan al agente, qué decisiones quedan en las personas y cómo se conversa ese cambio con el equipo para que la IA se adopte en lugar de imponerse. Con roles reales, antes y después. Te llevás: Un mapa de un rol de tu empresa, antes y después. Para: C-level, directores y RR. HH.. Duración: 60 a 90 min.
+- **Liderar con IA: qué tiene que hacer un líder para que su equipo la adopte**. Cuando el líder la usa y la promueve, la adopción del equipo se multiplica. Cómo responder al «¿me va a reemplazar?», cómo dar el ejemplo, cómo abrir espacio para probar y qué hacer con el tiempo que libera la IA. Te llevás: Acciones concretas para tu equipo en los próximos 30 días. Para: Gerentes, líderes de equipo y RR. HH.. Duración: 45 a 75 min.
+- **Confiar en la IA sin revisar todo: calidad, controles y seguridad**. La IA ya hace casi cualquier tarea; lo difícil es saber cuándo la hizo bien. Cómo definir qué es «bien hecho», cómo sumar controles que revisen antes de que el trabajo salga y qué reglas poner para cuidar los datos de la empresa. Te llevás: Un método para definir «bien hecho» y una lista de reglas básicas de uso. Para: Equipos que ya usan IA, sistemas, legales y riesgo. Duración: 45 a 60 min.
+- **Cómo empezar a transformar tu empresa en dos meses**. La charla de cierre, para salir con un plan. Ocho semanas contadas una por una: qué proceso elegir primero, cómo armar el primer agente, cómo medir si funciona y cómo sumar al equipo sin que lo viva como una amenaza. Te llevás: El plan de las ocho semanas y el primer paso para el lunes. Para: Dueños, gerentes generales y equipos directivos. Duración: 60 a 90 min.
+
+## Formatos
+
+- **Keynotes y charlas**: 45 a 90 minutos para eventos corporativos, conferencias y jornadas de innovación.
+- **Workshops de implementación**: medio día o día completo. El equipo mapea un proceso propio y sale con el diseño del agente que lo va a hacer.
+- **Consultoría estratégica de IA**: diagnóstico, priorización de procesos, diseño de los agentes, métricas de impacto y gestión del cambio. Se hace desde Ukelele.
+- **Formación de equipos**: programas de capacitación por área, de nivel básico a avanzado.
+- **Diagnóstico gratuito**: cinco preguntas en el sitio. Un agente arma el diagnóstico y Diego Urfeig lo revisa antes de enviarlo por mail.
+
+## Cómo cambia cada rol cuando se suma un agente
+
+Ejemplos ilustrativos que el sitio muestra como flujos animados.
+
+| Rol | Lo hace el agente | Lo decide la persona |
+| --- | --- | --- |
+| Atención al cliente (devoluciones) | Lee el pedido de devolución, busca la compra, aplica la política, responde al cliente, emite la etiqueta y el reembolso y registra el motivo. | Decide los casos dudosos y define la política. |
+| Marketing y pauta | Junta los datos de las plataformas, arma el reporte, detecta qué campaña anda mal, propone el cambio con el dato que lo justifica y lo aplica. | Decide qué cambio se hace y conversa la estrategia con el cliente. |
+| Análisis de datos | Escribe la consulta, limpia y cruza los datos, arma el gráfico y un segundo agente revisa los números. | Elige qué pregunta vale la pena, interpreta el resultado y recomienda. |
+| Ventas | Investiga al prospecto, escribe el primer mail, hace el seguimiento, carga el CRM y arma el borrador de la propuesta. | Tiene la reunión, negocia y cierra. |
+| Selección de personas | Publica la búsqueda, ordena los CV contra el perfil, coordina las entrevistas y arma el onboarding. | Entrevista y elige a quién contratar. |
+| Administración y finanzas | Recibe las facturas, carga los datos, concilia con el banco, detecta las diferencias y arma el cierre. | Decide qué hacer con las diferencias y aprueba los pagos. |
+
+## El dato: adopción de IA y resultados
+
+De cada 100 empresas, 88 usan IA en al menos una función, 39 ven algún impacto en sus resultados y 6 capturan valor significativo. Esas 6 tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan. Fuente: McKinsey, The State of AI in 2025 (encuesta global, n = 1.993).
+
+## Preguntas frecuentes
+
+### ¿Quién es Diego Urfeig?
+
+Diego Urfeig es speaker y consultor de inteligencia artificial, economista (UBA, con honores) y data scientist. Es AI Transformation Director en Ukelele. Fue Director Ejecutivo de CACE, la Cámara Argentina de Comercio Electrónico, durante más de ocho años, y hoy dirige su Comisión de Data. Fundó dos empresas, entre ellas Incremental, y lleva más de 150 charlas dadas y más de 20 años de docencia.
+
+### ¿De qué habla Diego Urfeig en sus charlas?
+
+De que la transformación con inteligencia artificial es, primero, un cambio cultural. Las herramientas ya están disponibles; lo que cambia los resultados es que las personas de la empresa las incorporen, entiendan su potencial y cambien la forma de pensar su propio trabajo. Sus charlas trabajan ese cambio desde distintos lados: por qué los pilotos de IA no llegan al negocio, qué pedirle a la IA, cómo liderar para que el equipo la adopte, cómo rediseñar un puesto cuando una parte la hace un agente, cómo confiar en lo que entrega y cómo empezar a transformar la empresa en dos meses.
+
+### ¿Por qué el cambio con IA en una empresa es primero cultural?
+
+Porque la tecnología ya no es el límite. Un equipo externo puede implementar herramientas y agentes, y eso suma. Pero el salto se da cuando la gente de adentro cambia el mindset: entiende lo que la IA puede hacer, la incorpora a su trabajo diario y empieza a proponer sus propios proyectos. Ahí la evolución deja de depender de un proveedor y el cambio se extiende a toda la organización, de un área a otra.
+
+### ¿Cómo cambia un puesto de trabajo cuando se suma un agente de IA?
+
+Las tareas repetitivas del proceso pasan al agente y la persona se queda con las decisiones: definir la política, resolver los casos que piden criterio y revisar el resultado. En devoluciones, por ejemplo, el agente lee el pedido, busca la compra, aplica la política y responde, y la persona decide los casos dudosos. La idea que resume el cambio es: agentes que ejecutan, personas que deciden.
+
+### ¿Por qué muchas empresas usan IA y pocas obtienen resultados?
+
+El 88% de las empresas ya usa IA en al menos una función, el 39% ve algún impacto en sus resultados y solo cerca del 6% captura valor significativo, según McKinsey (The State of AI in 2025, encuesta global a 1.993 personas). Las que capturan valor tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan, en lugar de sumar IA a los procesos que ya tenían. Rediseñar el trabajo lo hacen las personas de cada equipo: por eso el cambio es primero cultural.
+
+### ¿Cuánto dura una charla y en qué formatos se da?
+
+Las charlas duran entre 45 y 90 minutos y se dan de forma presencial o remota. También hay workshops de implementación de medio día o día completo, consultoría estratégica de IA, que se hace desde Ukelele, y programas de formación de equipos por área.
+
+### ¿Para qué empresas y eventos trabaja Diego Urfeig?
+
+Trabaja con empresas de Argentina y de toda Latinoamérica, desde grandes corporaciones hasta medianas empresas, en eventos corporativos, conferencias y jornadas de innovación. Entre las organizaciones con las que trabajó están Stanley, Ternium, Banco Galicia, Banco Provincia y New Balance.
+
+### ¿Qué es el diagnóstico gratuito y cómo funciona?
+
+Es un diagnóstico sin costo para detectar dónde están los principales dolores de cabeza de una empresa y por qué proceso conviene empezar con IA. Se responde un cuestionario de cinco preguntas en el sitio, un agente arma el diagnóstico con esas respuestas y Diego Urfeig lo revisa antes de enviarlo por mail.
+
+### ¿Cómo contrato a Diego Urfeig para una charla?
+
+Desde el formulario de contacto de diegourfeig.com o por WhatsApp. Conviene indicar la fecha tentativa, la audiencia y el proceso o tema que interesa. Responde en menos de 24 horas.
+
+### ¿Qué es IA en 1 minuto?
+
+Es la serie de videos de Diego Urfeig en Instagram, LinkedIn y TikTok. Cada episodio explica en un minuto una idea sobre inteligencia artificial que está cambiando cómo trabajamos, con el dato y la fuente.
+
+## Cómo citar
+
+Diego Urfeig, speaker de inteligencia artificial, agentes y datos. https://www.diegourfeig.com/

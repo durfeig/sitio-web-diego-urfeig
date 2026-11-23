@@ -1,13 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"   stop-color="#00D4FF"/>
-      <stop offset="50%"  stop-color="#7B2FFF"/>
-      <stop offset="100%" stop-color="#FF2D8B"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="8" fill="url(#grad)"/>
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
-        font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18"
-        fill="white">D</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#06070B"/>
+  <path d="M9 16h14" stroke="#8A5CFF" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="8" cy="16" r="4.6" fill="#FFB238"/>
+  <circle cx="24" cy="16" r="4.6" fill="#22E1FF"/>
+  <circle cx="16" cy="16" r="2.2" fill="#fff"/>
 </svg>
