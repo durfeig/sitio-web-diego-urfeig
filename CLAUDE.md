@@ -31,5 +31,16 @@
 - No tocar `main` directo: los cambios van por rama y PR.
 - Para pushear o abrir PRs, usar la cuenta `durfeig` pasando su token solo a ese comando. No cambiar la cuenta activa de `gh`.
 
+## Blog
+- El blog es para que los asistentes de IA citen el sitio, no para publicar volumen. Nada de artículos diarios generados de cero: Google penaliza el contenido masivo sin valor propio.
+- Cada artículo se arma con material de Diego: el dato con su fuente enlazada, una cita textual suya copiada exacta de sus captions o del video, preguntas frecuentes y, si es de un episodio, el video. Nunca inventar ni redondear datos o citas.
+- Usar fuentes del último año y escribir el año en el texto. Si no hay nada más nuevo, dejar el dato con su año. Sacar los pronósticos cuyo plazo ya venció.
+- No tocar las frases textuales de Diego al actualizar datos, salvo que dependan de un número viejo.
+- Lo que está en "Para confirmar" en la ficha de un episodio no entra al artículo, ni reescrito.
+- Nada interno de Ukelele en el blog: arquitecturas de agentes de clientes, notas internas, planes ni herramientas internas.
+- Todo va primero a `nuevo.diegourfeig.com` y pasa a producción solo con el OK de Diego.
+- No subir a producción el `llms-full.txt` del repo tal cual: no tiene la sección Blog. Reconstruirlo con `construir.py`, o tomar el que está en vivo y cambiar solo lo necesario.
+- Antes de subir, comprobar que lo que está en producción coincide con el punto de partida de la rama, para no pisar lo que subió otra sesión.
+
 ## Medición
 - Cada interacción nueva tiene que mandar su evento al `dataLayer` y, si es un botón principal, llevar un `data-track` fijo.

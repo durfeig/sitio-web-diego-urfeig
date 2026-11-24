@@ -1,5 +1,42 @@
 # Notas
 
+## 2026-11-23
+
+### IA en 1 minuto se actualiza sola cada semana (sesión c322f3e8, rama `claude/speaker-website-design-00e595`)
+
+- Diego eligió la opción B: una rutina semanal. Corre los lunes a las 9, elige el último episodio si tiene menos de 21 días y completa hasta tres con los más vistos en Instagram.
+- Primera corrida con datos reales: el sitio pasó de mostrar el 27, el 36 y el 38 a mostrar el **#37 (Nuevo), el #26 (8,3 mil reproducciones) y el #04 (4 mil)**. Está en producción (`3d39760`).
+- Solo entran los reels de la serie (#IAen1minuto) que tienen carpeta en Drive. El reel más visto de Diego, el del CAPTCHA con 2,6 millones, no es de la serie y no aparece.
+
+### Blog para que los asistentes de IA citen el sitio (sesión 02058f15, rama `claude/keen-feynman-daa3da`, PR #3)
+
+**Qué se decidió y por qué**
+- Sí al blog, pero alimentado con el material de Diego y no con volumen. Se apoyó en el estudio GEO (KDD 2024): las citas textuales suben la visibilidad en respuestas de IA, y meter palabras clave la baja. También en que la frescura pesa.
+- No a la publicación diaria, por la política de Google contra el contenido masivo sin valor propio. El ritmo es el de los episodios: 2 o 3 por semana.
+- La publicación es automática, pero con un toque de Diego: cada borrador va al subdominio de prueba y pasa a producción con su OK por WhatsApp.
+- Se priorizaron los artículos de fondo, uno por charla, por sobre subir todos los episodios. Subir todo de golpe se descartó: eran unos 20 artículos para revisar y una tanda grande escrita con IA es lo que Google mira con lupa.
+
+**Qué se hizo**
+- `construir.py` y `pendientes.py`, el link «Blog» en el menú y el pie, y los estilos del blog, incluidas las tablas como tarjetas en el celular.
+- 7 artículos en producción:
+  - de fondo: «La transformación con IA es primero cultural», «Pilotos de IA a resultados» (charla 2), «Confiar en la IA sin revisar todo» (charla 6) y «Cómo evaluar agentes de IA»;
+  - de episodios: #36, #26 y #04.
+- El de evaluación sale del artifact «Loops de Automejora», sin la parte interna de Ukelele. Como el artifact no cita fuentes, se buscaron fuentes nuevas para cada concepto.
+- **Revisión de fuentes desactualizadas:** Diego vio citas viejas. En los tres artículos de fondo se pasó a McKinsey State of AI 2026, BCG 2026 y Microsoft 2026. Se sacó el pronóstico de Gartner 2024, porque su plazo ya venció. El MIT 2025, Gartner 2025 y Kotter quedaron, con el año escrito en el texto. Los episodios ya tenían fuentes de septiembre a noviembre de 2026.
+- La rutina del blog lee la ficha `editado/epNN_blog.md` que ahora deja la edición de cada episodio (ver `durfeig/ia-en-1-minuto`, PR #4). El ep38 es el primero que tiene ficha.
+- Se sumó la regla de que un OK cuenta solo si llegó después de la última edición del borrador, porque un «Ok blog todos» viejo podía publicar borradores nuevos.
+
+**Pendiente**
+- Los artículos de fondo de las charlas 3, 4, 5 y 7. La 3 se dejó para después del artículo del ep38, que trata lo mismo.
+- La primera corrida completa de la rutina del blog: el modo automático bloqueó la prueba. Va a ser la del 24/11 a las 10:30, con el ep38. Hay que leer ese borrador con cuidado.
+- Mergear el #1 y el #3.
+
+### Portada con datos de McKinsey 2026 (sesión c322f3e8, commit `abdb887` en `claude/keen-feynman-daa3da`)
+
+- «Por qué importa», la charla 2 y la pregunta frecuente sobre resultados pasaron de McKinsey 2025 y el 95% del MIT a McKinsey 2026: de cada 100 empresas, casi 90 usan IA, 37 ven un aporte a sus resultados y 6 capturan valor de verdad. La pregunta frecuente suma BCG 2026 (7,5%).
+- En pantalla dice «~90», porque el informe dice «casi 9 de cada 10» y no se pudo abrir para confirmar el número exacto.
+- Primero se subió a `nuevo.` y después a producción con el OK de Diego. Para `llms-full.txt` se tomó el archivo en vivo, que tiene la sección Blog, y se cambiaron solo las líneas de datos.
+
 ## 2026-11-21
 
 ### Rediseño del sitio como speaker (sesiones fe6edec1 y c322f3e8, rama `claude/speaker-website-design-00e595`)
