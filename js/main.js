@@ -216,7 +216,7 @@
     var frag = document.createDocumentFragment();
     for (var i = 0; i < 100; i++) {
       var dot = document.createElement('i');
-      dot.className = (i < 88 ? 'u ' : '') + (i < 39 ? 'm ' : '') + (i < 6 ? 'h' : '');
+      dot.className = (i < 89 ? 'u ' : '') + (i < 37 ? 'm ' : '') + (i < 6 ? 'h' : '');
       dot.style.setProperty('--i', i);
       frag.appendChild(dot);
     }

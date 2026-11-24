@@ -56,7 +56,7 @@ Los problemas que más escucha en empresas de todos los rubros y dónde se traba
 Cada charla se da presencial o remota y se adapta a la industria y a los procesos del equipo.
 
 - **La transformación con IA es primero cultural**. Las herramientas ya están; lo que separa a las empresas que avanzan es que su gente las adopte. Cómo pasar de licencias que casi nadie usa a equipos que proponen sus propios proyectos con IA, y cómo lograr que el cambio se contagie de un área a otra sin depender de un proveedor. Te llevás: Un mapa de dónde está tu organización y las palancas para mover a la gente. Para: Toda la organización. Ideal para abrir un evento. Duración: 45 a 90 min.
-- **De pilotos a resultados: por qué la IA no llega al negocio (y cómo hacer que llegue)**. El 95% de los pilotos de IA generativa no muestra impacto medible. Qué hacen distinto las pocas empresas que capturan valor: rediseñan el trabajo de punta a punta en lugar de sumar IA a lo que ya hacían. Con casos reales, como un agente que responde las devoluciones o uno que propone cambios en la pauta. Te llevás: Criterios para elegir qué proceso rediseñar primero y cómo medir si funcionó. Para: Equipos directivos y líderes de área. Duración: 45 a 75 min.
+- **De pilotos a resultados: por qué la IA no llega al negocio (y cómo hacer que llegue)**. Casi 9 de cada 10 empresas ya usan IA, pero solo el 37% ve un aporte a sus resultados (McKinsey, 2026). Qué hacen distinto las pocas empresas que capturan valor: rediseñan el trabajo de punta a punta en lugar de sumar IA a lo que ya hacían. Con casos reales, como un agente que responde las devoluciones o uno que propone cambios en la pauta. Te llevás: Criterios para elegir qué proceso rediseñar primero y cómo medir si funcionó. Para: Equipos directivos y líderes de área. Duración: 45 a 75 min.
 - **Qué pedirle a la IA: de dar tareas a dar objetivos**. Hay tres niveles de uso: pedir algo y esperar, pedir con contexto, y dar el objetivo para que la IA proponga opciones. La mayoría se queda en el primero, y por eso el tiempo que ahorra no se nota en los resultados. Con el mismo pedido resuelto en los tres niveles, para que se vea la diferencia. Te llevás: Cómo pasar tu trabajo de todos los días al tercer nivel. Para: Toda la organización, sin conocimientos previos. Duración: 45 a 60 min.
 - **Cómo rediseñar un puesto cuando una parte la hace un agente**. Qué tareas pasan al agente, qué decisiones quedan en las personas y cómo se conversa ese cambio con el equipo para que la IA se adopte en lugar de imponerse. Con roles reales, antes y después. Te llevás: Un mapa de un rol de tu empresa, antes y después. Para: C-level, directores y RR. HH.. Duración: 60 a 90 min.
 - **Liderar con IA: qué tiene que hacer un líder para que su equipo la adopte**. Cuando el líder la usa y la promueve, la adopción del equipo se multiplica. Cómo responder al «¿me va a reemplazar?», cómo dar el ejemplo, cómo abrir espacio para probar y qué hacer con el tiempo que libera la IA. Te llevás: Acciones concretas para tu equipo en los próximos 30 días. Para: Gerentes, líderes de equipo y RR. HH.. Duración: 45 a 75 min.
@@ -86,7 +86,7 @@ Ejemplos ilustrativos que el sitio muestra como flujos animados.
 
 ## El dato: adopción de IA y resultados
 
-De cada 100 empresas, 88 usan IA en al menos una función, 39 ven algún impacto en sus resultados y 6 capturan valor significativo. Esas 6 tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan. Fuente: McKinsey, The State of AI in 2025 (encuesta global, n = 1.993).
+De cada 100 empresas, casi 90 usan IA en al menos una función, 37 ven un aporte positivo a su resultado operativo y 6 capturan valor significativo. Lo que más distingue a esas 6 es que rediseñaron cómo trabajan, en lugar de sumar IA a los procesos que ya tenían. Fuente: McKinsey, The State of AI in 2026 (encuesta global, n = 1.719, mayo y junio de 2026).
 
 ## Preguntas frecuentes
 
@@ -108,7 +108,7 @@ Las tareas repetitivas del proceso pasan al agente y la persona se queda con las
 
 ### ¿Por qué muchas empresas usan IA y pocas obtienen resultados?
 
-El 88% de las empresas ya usa IA en al menos una función, el 39% ve algún impacto en sus resultados y solo cerca del 6% captura valor significativo, según McKinsey (The State of AI in 2025, encuesta global a 1.993 personas). Las que capturan valor tienen casi tres veces más probabilidades de haber rediseñado cómo trabajan, en lugar de sumar IA a los procesos que ya tenían. Rediseñar el trabajo lo hacen las personas de cada equipo: por eso el cambio es primero cultural.
+Casi 9 de cada 10 empresas ya usan IA en al menos una función, pero solo el 37% ve un aporte positivo a su resultado operativo y cerca del 6% obtiene valor significativo, según McKinsey (The State of AI in 2026, encuesta global a 1.719 personas, mayo y junio de 2026). BCG llega a algo parecido: en su Applied AI Index de septiembre de 2026, solo el 7,5% de las empresas genera valor significativo. Lo que más distingue a las que capturan valor es que rediseñaron cómo trabajan, en lugar de sumar IA a los procesos que ya tenían. Rediseñar el trabajo lo hacen las personas de cada equipo: por eso el cambio es primero cultural.
 
 ### ¿Cuánto dura una charla y en qué formatos se da?
 
