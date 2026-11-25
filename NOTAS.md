@@ -1,5 +1,21 @@
 # Notas
 
+## 2026-11-24
+
+### Guía de voz para el blog (sesión 1a1d76b0, repo `durfeig/ia-en-1-minuto`)
+
+- **Decisión:** la voz del blog va en un archivo de Drive que lee la rutina, `Mi unidad/Sitio diegourfeig.com/voz-diego.md`. Descartado: la voz dentro de cada ficha (se repite), `mi-estilo.md` (es la voz general de Diego, no la de un artículo) y no hacer nada (el blog seguía sonando neutro).
+- La guía sale de los videos: tono directo en primera persona, párrafos de una a tres oraciones, «Ahora,» y «Ojo:», palabras como laburo o sacarle juego, sin rayas, emojis ni hashtags. Pone como ejemplo de lo que hay que evitar el tono de manual del artículo de la transformación cultural, con dos párrafos reescritos.
+- Lo que no cambia para que las IA citen: el primer párrafo responde la pregunta con el dato y su fuente, cada cifra con su fuente nombrada, preguntas frecuentes que se entienden solas.
+- **Pendiente:** sumar la lectura de `voz-diego.md` al prompt de la rutina `sitio-blog-ia-en-1-minuto`. Al 25/11 el prompt todavía no la menciona.
+
+### Corrida de la rutina del blog (sesión af7941ea, 24/11 10:34 hora de Argentina)
+
+- Sin OK nuevos por WhatsApp, así que no se publicó nada.
+- Borrador del ep37 «Cómo un agente de IA maneja los aparatos de tu casa por Wi-Fi» en Drive (`blog/ep37-agente-de-ia-maneja-tu-casa-por-wifi.md`, `estado: borrador`). Fuentes: el informe IoT 2026 de Bitdefender y NETGEAR (octubre de 2026) y la documentación de la API de Hue. Quedó afuera lo marcado «Para confirmar» en la ficha.
+- **Falla:** el conector de Hostinger no estaba en la sesión de la rutina, así que el borrador no llegó a `nuevo.diegourfeig.com`. Diego recibió el aviso por WhatsApp con «OK blog 37» para aprobar.
+- **Pendiente:** activar el conector de Hostinger para la tarea programada y subir el borrador del ep37 a la prueba.
+
 ## 2026-11-23
 
 ### IA en 1 minuto se actualiza sola cada semana (sesión c322f3e8, rama `claude/speaker-website-design-00e595`)

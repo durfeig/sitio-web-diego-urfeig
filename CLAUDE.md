@@ -36,6 +36,8 @@
 - Cada artículo se arma con material de Diego: el dato con su fuente enlazada, una cita textual suya copiada exacta de sus captions o del video, preguntas frecuentes y, si es de un episodio, el video. Nunca inventar ni redondear datos o citas.
 - Usar fuentes del último año y escribir el año en el texto. Si no hay nada más nuevo, dejar el dato con su año. Sacar los pronósticos cuyo plazo ya venció.
 - No tocar las frases textuales de Diego al actualizar datos, salvo que dependan de un número viejo.
+- Escribir con la voz de `Mi unidad/Sitio diegourfeig.com/voz-diego.md`: primera persona, párrafos cortos, sin tono de manual, sin rayas, emojis ni hashtags.
+- Las citas textuales salen solo de «Frases textuales» de la ficha del episodio, nunca del caption. Los casos propios de Diego, solo si están en la ficha.
 - Lo que está en "Para confirmar" en la ficha de un episodio no entra al artículo, ni reescrito.
 - Nada interno de Ukelele en el blog: arquitecturas de agentes de clientes, notas internas, planes ni herramientas internas.
 - Todo va primero a `nuevo.diegourfeig.com` y pasa a producción solo con el OK de Diego.

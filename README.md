@@ -38,6 +38,7 @@ Desde el 21/11/2026 el sitio en producción es el rediseño de la rama `claude/s
 - La medición va al `dataLayer` de Google Tag Manager `GTM-NV3FT6SL`, que carga GA4 `G-K6DN2Y5TMN`. Eventos: `cta_click`, `role_select`, `flow_mode`, `talk_open`, `talk_reserve`, `video_play`, `faq_open`, `diagnostic_start`, `diagnostic_step`, `generate_lead`, `section_view`, `pain_select`. Los botones principales tienen `data-track` fijo (por ejemplo `hero-charla`, `header-reservar`) para apuntarles tests.
 
 - **Artículos del blog:** viven en Drive, en `Mi unidad/Sitio diegourfeig.com/blog/`, un `.md` por artículo, con `estado: borrador` o `publicado`. Las correcciones de un artículo ya publicado van en `blog/_revisiones/`, con el mismo nombre de archivo, hasta que Diego las aprueba.
+- **Guía de voz del blog:** `Mi unidad/Sitio diegourfeig.com/voz-diego.md` (desde el 24/11). Tono, ritmo, palabras de Diego, qué evitar y ejemplos de antes y después. Está afuera de `blog/` para que no se tome como artículo.
 - **Material de los episodios:** las carpetas `epNN · …` de "IA en 1 minuto" en Drive. Si existen, el blog usa la ficha `editado/epNN_blog.md` y `editado/epNN_transcripcion_final.txt`, que deja la skill `editar-episodio` del repo `durfeig/ia-en-1-minuto`.
 - **Reproducciones de Instagram:** las lee la rutina semanal con Apify (≈USD 0,12 por corrida).
 
@@ -69,6 +70,7 @@ Desde el 21/11/2026 el sitio en producción es el rediseño de la rama `claude/s
 
 - **Se borraron los artículos de `llms-full.txt` en producción:** el `llms-full.txt` del repo no tiene la sección `## Blog`, que se agrega al construir. Hay que reconstruirlo con `python3 scripts/blog/construir.py "<Drive>/Sitio diegourfeig.com/blog" <salida>` y subir `<salida>/llms-full.txt`.
 - **La lista de episodios no cambió un lunes:** revisar el aviso de WhatsApp de la rutina. Si Instagram, Drive o Hostinger fallaron, el sitio queda a propósito con la lista anterior.
+- **La rutina del blog no sube el borrador a la prueba:** la sube con el conector de Hostinger de claude.ai. Si ese conector no está en la sesión de la rutina, el borrador queda en Drive y Diego recibe un WhatsApp con el error. Activar el conector para las tareas programadas y volver a correr la rutina (pasó el 24/11 con el ep37).
 - **Un borrador del blog no se publica:** el OK tiene que empezar con «OK blog» y llegar después de la última edición del `.md`.
 
 - **Un archivo da 404 justo después de subirlo:** suele ser el CDN de Hostinger. Recargar a los pocos segundos.
